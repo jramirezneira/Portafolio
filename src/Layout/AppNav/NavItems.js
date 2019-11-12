@@ -123,6 +123,10 @@ export const ChartsNav = [
                 label: 'Tecnologías más populares',
                 to: '#/charts/chartjs',
             },
+            {
+                label: 'Análisis NPL con Spacy',
+                to: '#/wordcloud/wordcloud',
+            },
             ]
     },
 ];

@@ -3,7 +3,7 @@ import {Route} from 'react-router-dom';
 
 // Charts
 
-import ChartsChartJs from "./ChartJs/";
+import WordCloud from "./WordCloud/";
 
 // Layout
 
@@ -21,7 +21,7 @@ const Charts = ({match}) => (
 
                     {/* Charts */}
 
-                    <Route path={`${match.url}/chartjs`} component={ChartsChartJs}/>
+                    <Route path={`${match.url}/wordcloud`} component={WordCloud}/>
 
                 </div>
                 <AppFooter/>
