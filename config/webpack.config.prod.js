@@ -312,10 +312,14 @@ module.exports = {
           },
           compress: {
             warnings: false,
+			comparisons: false,
           },
           output: {
+			comments: false,
             beautify: false,
+			ascii_only: true,
           },
+		  sourceMap: shouldUseSourceMap,
         },
       }),
 	
