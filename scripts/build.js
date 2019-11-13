@@ -35,14 +35,6 @@ const useYarn = fs.existsSync(paths.yarnLockFile);
 const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024;
 const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 
-
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-
-// new webpack.optimize.UglifyJsPlugin({ // Can switch back to this with webpack 4
-new UglifyJsPlugin({
-    sourceMap: true
-})
-
 // Warn and crash if required files are missing
 if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
   process.exit(1);
