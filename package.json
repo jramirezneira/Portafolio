@@ -68,7 +68,6 @@
     "react-responsive-tabs": "^3.0.0",
     "react-router-dom": "^4.4.0-beta.6",
     "react-toastify": "^4.5.2",
-    "react-wordcloud": "^1.1.1",
     "reactstrap": "^6.5.0",
     "redux": "^4.0.1",
     "resolve-url-loader": "^2.1.0",
