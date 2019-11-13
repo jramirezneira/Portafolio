@@ -22,23 +22,6 @@ export default class TableExample extends Component
       }
     }
 
-getData()
-{
-     console.log('pasa 1');
-     let dataSummary = require('./data/words.json');
-     this.setState({
-        words:dataSummary
-     });
-
-
-
-}
-
-componentDidMount() {
-
-    this.getData();
-
-}
 
 
   render() {

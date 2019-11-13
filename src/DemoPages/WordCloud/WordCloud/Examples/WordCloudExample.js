@@ -21,23 +21,7 @@ export default class WordCloudExample extends Component
       }
     }
 
-getData()
-{
-     console.log('pasa 1');
-     let dataSummary = require('./data/words.json');
-     this.setState({
-        words:dataSummary
-     });
 
-
-
-}
-
-componentDidMount() {
-
-    this.getData();
-
-}
 
   render() {
 
@@ -100,7 +84,16 @@ const options = {
 
     return (
     <div>
-      hola
+      <Resizable
+        defaultSize={{
+          width: 450,
+          height: 400,
+        }}
+        >
+
+          <ReactWordcloud options={options}  words={data}  />
+
+      </Resizable>
     </div>
     );
   }
