@@ -249,6 +249,21 @@ module.exports = {
           // Make sure to add the new loader(s) before the "file" loader.
         ],
       },
+		{
+		  test: /\.jsx$/,
+		  loader: 'babel-loader',
+		  options: {
+			presets: ['env', 'react']
+		  }
+		},
+		{
+		  test: /\.js$/,
+		  loader: 'babel-loader',
+		  enforce: 'pre'
+		}
+	  
+	  
+	  
     ],
   },
   plugins: [
