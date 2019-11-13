@@ -12,19 +12,36 @@ import { Resizable } from 're-resizable';
 export default class WordCloudExample extends Component
 {
 
-    constructor(props) {
+ constructor(props) {
       super(props);
       this.state = {
-        dataSpacy: {},
+        words: require('./data/words.json')
+
 
       }
     }
 
+getData()
+{
+     console.log('pasa 1');
+     let dataSummary = require('./data/words.json');
+     this.setState({
+        words:dataSummary
+     });
 
+
+
+}
+
+componentDidMount() {
+
+    this.getData();
+
+}
 
   render() {
 
-let words = require('./data/words.json');
+
 
  let filter="Lenguaje de programación";
     this.props.selectValuesType.forEach(element => {
@@ -46,7 +63,7 @@ let words = require('./data/words.json');
 
 
  let data={};
- data = words.filter(l => l.Description== filter);
+ data = this.state.words.filter(l => l.Description== filter);
 
  if (filterTec !="Todos")
     data = data.filter(l => l.tec== filterTec);
