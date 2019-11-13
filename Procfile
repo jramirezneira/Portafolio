@@ -1,2 +1,2 @@
-web: npm run eject
+web: npm run build
 
