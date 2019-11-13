@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ReactWordcloud from 'react-wordcloud';
+
 import { Resizable } from 're-resizable';
 import { words } from "./data/words";
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
