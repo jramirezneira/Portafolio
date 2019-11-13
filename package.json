@@ -26,7 +26,6 @@
     "classnames": "^2.2.5",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.1",
-    "d3-array": "1.2.4",
     "dotenv": "^6.2.0",
     "eslint": "4.4.1",
     "eslint-config-react-app": "^5.0.2",
@@ -75,8 +74,6 @@
     "sass-loader": "^6.0.6",
     "style-loader": "0.18.2",
     "sw-precache-webpack-plugin": "0.11.5",
-    "terser-webpack-plugin": "^2.2.1",
-    "uglify-es": "^3.3.9",
     "url-loader": "0.5.9",
     "webpack": "3.5.1",
     "webpack-dev-server": "2.7.1",
@@ -88,8 +85,6 @@
     "mocha": "^6.2.1",
     "node-sass": "^4.10.0",
     "sass-loader": "^6.0.6",
-    "terser": "^3.14.1",
-    "terser-webpack-plugin": "^2.2.1",
     "webpack-dev-server": "2.7.1"
   },
   "scripts": {
