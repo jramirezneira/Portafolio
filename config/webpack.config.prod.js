@@ -362,15 +362,5 @@ module.exports = {
     tls: 'empty',
     child_process: 'empty',
   },
-  module: { //<-- added this entire block into the libraries' config to compile to es5, 
-    loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        presets: ['es2015'],
-      }
-    }]
-  }
-
+  
 };
