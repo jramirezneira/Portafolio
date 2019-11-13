@@ -106,6 +106,29 @@ module.exports = {
       new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     ],
   },
+  
+module: {
+  rules: [
+    {
+      test: /\.jsx$/,
+      loader: 'babel-loader',
+      options: {
+        presets: ['env', 'react']
+      }
+    },
+    {
+      test: /\.js$/,
+      loader: 'babel-loader',
+      enforce: 'pre'
+    }
+  ]
+},
+resolve: {
+  extensions: ['.js', '.jsx']
+}
+
+  
+/*
   module: {
     strictExportPresence: true,
     rules: [
@@ -251,7 +274,7 @@ module.exports = {
         ],
       },
     ],
-  },
+  }, */
   plugins: [
     // Makes some environment variables available in index.html.
     // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
