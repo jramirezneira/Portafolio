@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Resizable } from 're-resizable';
-import { words } from "./data/words";
+
 import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import 'react-bootstrap-table/dist/react-bootstrap-table.min.css';
 
@@ -25,7 +25,7 @@ export default class TableExample extends Component
 
   render() {
 
-
+let words = require('./data/words.json');
 
  let filter="Lenguaje de programación";
     this.props.selectValuesType.forEach(element => {
