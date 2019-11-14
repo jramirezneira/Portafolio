@@ -64,16 +64,16 @@ export default class ChartJsCircular extends React.Component {
 
     render() {
 
-    let filter="Lenguaje de programación";
+    let filter="language";
     this.state.selectValuesType.forEach(element => {
-        filter= element.Description;
+        filter= element.type;
     });
 
-
+    console.log(this.state.selectValuesType);
   // let data=  listTypeTechnologiesByType.filter(l => l.Description== filter);
     let data=  {}
 
-    data = listTypeTechnologiesByType.filter(l => l.Description== filter);
+    data = listTypeTechnologiesByType.filter(l => l.type== filter);
 
 
         return (
@@ -108,9 +108,9 @@ export default class ChartJsCircular extends React.Component {
                                           dropdownHeight={this.state.dropdownHeight}
                                           direction={this.state.direction}
                                           multi={this.state.multi}
-                                          values={[listTypeTechnologies.find(opt => opt.Description === "Lenguaje de programación")]}
+                                          values={[listTypeTechnologies.find(opt => opt.type === "language")]}
                                           labelField={"Description"}
-                                          valueField={"Description"}
+                                          valueField={"type"}
                                           options={listTypeTechnologies}
                                           dropdownGap={5}
                                           keepSelectedInList={this.state.keepSelectedInList}

@@ -28,12 +28,12 @@ export default class TableExample extends Component
 
 
 
- let filter="Lenguaje de programación";
+ let filter="language";
     this.props.selectValuesType.forEach(element => {
-        filter= element.Description;
+        filter= element.type;
 
     });
-
+ console.log(filter);
  let filterTec="Todos";
     this.props.selectValuesTec.forEach(element => {
         filterTec= element.tec;
@@ -48,7 +48,8 @@ export default class TableExample extends Component
 
 
  let data={};
- data = this.state.words.filter(l => l.Description== filter);
+ data = this.state.words.filter(l => l.type== filter);
+
 
  if (filterTec !="Todos")
     data = data.filter(l => l.tec== filterTec);
