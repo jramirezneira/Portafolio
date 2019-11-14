@@ -25,7 +25,13 @@ export default class WordCloudExample extends Component
 
   render() {
 
-
+const resizeStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  border: 'solid 1px #ddd',
+  background: '#f0f0f0',
+};
 
  let filter="language";
     this.props.selectValuesType.forEach(element => {
@@ -57,13 +63,6 @@ export default class WordCloudExample extends Component
 
 
 
-   const resizeStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  border: 'solid 1px #ddd',
-  background: '#f0f0f0',
-};
 
 
 const options = {
@@ -88,7 +87,7 @@ const options = {
         defaultSize={{
           width: 450,
           height: 400,
-        }}
+        }} style={resizeStyle}
         >
 
           <ReactWordcloud options={options}  words={data}  />
