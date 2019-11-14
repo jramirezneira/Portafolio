@@ -85,7 +85,7 @@ const options = {
     <div>
       <Resizable
         defaultSize={{
-          width: 400,
+          width: 450,
           height: 400,
         }} style={resizeStyle}
         >
