@@ -206,10 +206,10 @@ export default class ChartJsCircular extends React.Component {
                                     <CardTitle>Wordcloud</CardTitle>
 
                                         <Row>
-                                            <Col lg="7">
+                                            <Col lg="8">
                                                 <WordCloudExample selectValuesLabels={this.state.selectValuesLabels} selectValuesType={this.state.selectValuesType}  selectValuesTec={this.state.selectValuesTec}  />
                                             </Col>
-                                            <Col lg="5">
+                                            <Col lg="4">
                                                  <TableExample selectValuesLabels={this.state.selectValuesLabels} selectValuesType={this.state.selectValuesType}  selectValuesTec={this.state.selectValuesTec}  />
                                             </Col>
                                         </Row>
