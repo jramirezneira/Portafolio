@@ -35,7 +35,7 @@ export default class ChartJSExamples extends Component {
              <div>
                 <PageTitle
                     heading="Reconocimiento y correlación de entidades de noticias políticas de diarios Españoles con SpaCy"
-                    subheading="SpaCy es una librería de procesamiento de lenguaje natural muy utilizada para el reconocimiento de entidades dentro de textos. El objetivo de este trabajo es descubrir los nombres de entidades más utilizados en noticias políticas de diarios Españoles en función de su línea editorial, ya sea progresista o conservadora. Los diarios del ala progresista son: El diario y Público  "
+                    subheading="SpaCy es una librería de procesamiento de lenguaje natural muy utilizada para el reconocimiento de entidades dentro de textos ya sean personas, incluso ficticias. nacionalidades o grupos religiosos o políticos. edificios, aeropuertos, carreteras, puentes, etc. El objetivo de este trabajo es descubrir los nombres de entidades más utilizados en noticias políticas de diarios Españoles en función de su línea editorial, ya sea progresista o conservadora. Los diarios del ala progresista son: El diario y Público  "
                     icon="pe-7s-graph2 icon-gradient bg-mean-fruit"
                 />
             </div>

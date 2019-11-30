@@ -124,7 +124,8 @@ export default class CoocurrenceGraphExample extends Component
         this.neighbourhoodHighlightHide(event);
       },
       click: function(event) {
-        this.redirectToLearn(event, this.props.searchData);
+           this.neighbourhoodHighlight(event, this.props.searchData);
+     //   this.redirectToLearn(event, this.props.searchData);
       }
     };
 
@@ -149,7 +150,7 @@ export default class CoocurrenceGraphExample extends Component
     this.events.blurNode = this.events.blurNode.bind(this);
     this.events.click = this.events.click.bind(this);
     this.neighbourhoodHighlight = this.neighbourhoodHighlight.bind(this);
-    this.redirectToLearn = this.redirectToLearn.bind(this);
+    //this.redirectToLearn = this.redirectToLearn.bind(this);
     this.neighbourhoodHighlightHide = this.neighbourhoodHighlightHide.bind(  this   );
   }
 
@@ -224,7 +225,7 @@ componentDidUpdate(prevProps)
         this.events.blurNode = this.events.blurNode.bind(this);
         this.events.click = this.events.click.bind(this);
         this.neighbourhoodHighlight = this.neighbourhoodHighlight.bind(this);
-        this.redirectToLearn = this.redirectToLearn.bind(this);
+        //this.redirectToLearn = this.redirectToLearn.bind(this);
         this.neighbourhoodHighlightHide = this.neighbourhoodHighlightHide.bind(  this   );
 
         this.getNetwork = data => {
@@ -254,9 +255,9 @@ componentDidUpdate(prevProps)
     this.state.network.redraw();
     this.state.network.fit();
   }
-
+/*
   redirectToLearn(params, searchData) {
-    const result = getObjects(
+    const result = this.getObjects(
       this.state.graph.nodes,
       "id",
       this.state.network.getNodeAt(params.pointer.DOM)
@@ -270,7 +271,7 @@ componentDidUpdate(prevProps)
         // window.open('/' + result[0].concept_url, '_blank');
       }
     }
-  }
+  }*/
 
   neighbourhoodHighlight(params, searchData) {
     let allNodes = this.state.graph.nodes;
