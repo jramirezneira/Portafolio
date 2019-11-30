@@ -19,13 +19,13 @@ class Nav extends Component {
 
         return (
             <Fragment>
-                <h5 className="app-sidebar__heading">Charts</h5>
+                <h5 className="app-sidebar__heading">Stack Overflow</h5>
                 <MetisMenu content={ChartsNav} activeLinkFromLocation className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>
 
-                {/*
-                <h5 className="app-sidebar__heading">Word Cloud</h5>
+
+                <h5 className="app-sidebar__heading">Diarios de España</h5>
                 <MetisMenu content={WordCloudNav} activeLinkFromLocation className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>
-*/}
+
             </Fragment>
         );
     }

@@ -8,6 +8,9 @@ import {
 
 const Charts = lazy(() => import('../../DemoPages/Charts'));
 const WordCloud = lazy(() => import('../../DemoPages/WordCloud'));
+const CoocurrenceGraph = lazy(() => import('../../DemoPages/CoocurrenceGraph'));
+
+
 
 
 
@@ -90,8 +93,22 @@ const AppMain = () => {
                     </div>
                 </div>
             }>
+                <Route path="/CoocurrenceGraph" component={CoocurrenceGraph}/>
+            </Suspense>
+
+
+            <Suspense fallback={
+                <div className="loader-container">
+                    <div className="loader-container-inner">
+                        <h6 className="mt-3">
+                            Cargando dashboard...
+                         </h6>
+                    </div>
+                </div>
+            }>
                 <Route path="/wordcloud" component={WordCloud}/>
             </Suspense>
+
 
             {/* Dashboards */}
 
@@ -100,7 +117,7 @@ const AppMain = () => {
                     <div className="loader-container-inner">
                         <h6 className="mt-3">
                             Cargando dashboard...
-                               </h6>
+                       </h6>
                     </div>
                 </div>
             }>

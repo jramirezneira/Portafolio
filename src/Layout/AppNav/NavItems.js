@@ -116,26 +116,23 @@ export const WidgetsNav = [
 export const ChartsNav = [
     {
         icon: 'pe-7s-graph2',
-        label: 'Stack Overflow',
+        label: 'Tecnologías más populares',
+        to: '#/charts/chartjs',
 
-        content: [
-            {
-                label: 'Tecnologías más populares',
-                to: '#/charts/chartjs',
-            },
-            {
-                label: 'Análisis NPL con Spacy',
-                to: '#/wordcloud/wordcloud',
-            },
-            ]
+
     },
+    {
+        icon: 'pe-7s-graph2',
+        label: 'Análisis NLP con Spacy',
+        to: '#/wordcloud/wordcloud',
+    }
 ];
 
-{/*
+
 export const WordCloudNav = [
     {
         icon: 'pe-7s-graph2',
-        label: 'Stack Overflow Dashboard',
-        to: '#/wordcloud/wordcloud',
+        label: 'Correlación de entidades',
+        to: '#/CoocurrenceGraph/CoocurrenceGraph',
     },
-];*/}
+];
