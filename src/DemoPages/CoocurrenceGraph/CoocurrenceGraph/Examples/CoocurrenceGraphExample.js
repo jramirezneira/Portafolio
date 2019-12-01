@@ -1,10 +1,17 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, BackgroundContainer,BackgroundImage, PageContainer } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Resizable } from 're-resizable';
 import Graph from 'vis-react';
-
+import MediaQuery from 'react-responsive'
 import "./css/styles.css";
+import {
+    Card, CardBody,
+    CardTitle
+} from 'reactstrap';
+
+
+
 
 var highlightActive = false;
 let options = {
@@ -461,26 +468,53 @@ componentDidUpdate(prevProps)
   };
 
 
+  getBackgroundChapterImage = () => {
+    const chapterLabel = "./images/eldiario.jpg";
+
+  };
+
   render() {
 
+  const styles = {
+  header: {
+    backgroundImage: "./images/eldiario.jpg",
+    height: '100vh',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover'
+  },
 
-    return (
-    <div className="vis-react">
-         <Fragment>
+  content: {
+    height: '100%',
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  }
+}
 
-        <Graph
-          graph={this.state.graph}
-          style={ this.state.style}
-          options={options}
-          getNetwork={this.getNetwork}
-          getEdges={this.getEdges}
-          getNodes={this.getNodes}
-          events={this.events}
-          vis={vis => (this.vis = vis)}
-        />
-      </Fragment>
-      </div>
-    );
+
+  return (
+    <Card className="main-card mb-2">
+      <CardBody>
+           <CardTitle>{this.props.selectValuesType[0].Description}</CardTitle>
+          <div className="vis-react" style={styles.header}>
+             <Fragment>
+                 <Graph
+                  graph={this.state.graph}
+                  style={ this.state.style}
+                  options={options}
+                  getNetwork={this.getNetwork}
+                  getEdges={this.getEdges}
+                  getNodes={this.getNodes}
+                  events={this.events}
+                  vis={vis => (this.vis = vis)}
+                />
+
+             </Fragment>
+          </div>
+      </CardBody>
+    </Card>
+  )
+
   }
 }
 

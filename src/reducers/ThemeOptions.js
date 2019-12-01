@@ -1,4 +1,4 @@
-import sideBar6 from '../assets/utils/images/sidebar/city1.jpg';
+import sideBar6 from '../assets/utils/images/sidebar/spacy.jpg';
 
 export const SET_ENABLE_BACKGROUND_IMAGE = 'THEME_OPTIONS/SET_ENABLE_BACKGROUND_IMAGE';
 
@@ -110,8 +110,8 @@ export const setBackgroundImage = backgroundImage => ({
 });
 
 export default function reducer(state = {
-    backgroundColor: 'bg-midnight-bloom sidebar-text-light',
-    headerBackgroundColor: 'bg-plum-plate header-text-light',
+    backgroundColor: 'bg-happy-green sidebar-text-light',
+    headerBackgroundColor: 'bg-grow-early header-text-light',
     enableMobileMenuSmall: '',
     enableBackgroundImage: true,
     enableClosedSidebar: false,
@@ -122,7 +122,7 @@ export default function reducer(state = {
     enableFixedSidebar: true,
     colorScheme: 'white',
     backgroundImage: sideBar6,
-    backgroundImageOpacity: 'opacity-06',
+    backgroundImageOpacity: 'opacity-3',
     enablePageTitleIcon: true,
     enablePageTitleSubheading: true,
     enablePageTabsAlt: false,

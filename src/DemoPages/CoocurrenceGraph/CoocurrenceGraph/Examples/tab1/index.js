@@ -93,7 +93,7 @@ export default class ChartJsCircular extends React.Component {
                             <CardBody>
                                 <Row>
                                     <Col lg="5">
-                                        <p className="text-primary">Tipo de tecnología</p>
+                                        <p className="text-primary">Diario</p>
 
                                         <Select
                                                 placeholder="Select peoples"
@@ -126,7 +126,7 @@ export default class ChartJsCircular extends React.Component {
                                                 />
 
                                         </Col>
-                                        <Col><p className="text-primary">Tipo de tecnología</p>
+                                        <Col><p className="text-primary">Entidad</p>
                                         <Select
                                                 id="id1"
                                                 placeholder="Select peoples"
@@ -168,13 +168,10 @@ export default class ChartJsCircular extends React.Component {
 
                     <Row>
                         <Col lg="10">
-                            <Card >
-                                <CardBody>
 
-                                    <CoocurrenceGraphExample selectValuesTo={this.state.selectValuesTo} selectValuesType={this.state.selectValuesType}  />
 
-                                </CardBody>
-                            </Card>
+                           <CoocurrenceGraphExample selectValuesTo={this.state.selectValuesTo} selectValuesType={this.state.selectValuesType}  />
+
                         </Col>
                     </Row>
 
