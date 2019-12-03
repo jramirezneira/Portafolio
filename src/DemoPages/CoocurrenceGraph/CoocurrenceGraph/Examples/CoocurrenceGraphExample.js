@@ -66,19 +66,6 @@ let options = {
       roundness: 0
     }
   },
-
-  // physics: {
-  //   forceAtlas2Based: {
-  //       gravitationalConstant: -200,
-  //       centralGravity: 0.05,
-  //       springLength: 230,
-  //       springConstant: 0.08,
-  //       avoidOverlap:9
-  //   },
-  //   solver: 'forceAtlas2Based',
-  //   timestep: 0.35,
-  //   stabilization: {enabled:true,iterations: 10}
-  // },
    physics: {
     barnesHut: {
       gravitationalConstant: -40000,
@@ -109,6 +96,8 @@ export default class CoocurrenceGraphExample extends Component
       super.setState(stateObj);
     }
   }
+
+
   componentWillMount() {
     this.mounted = true;
   }
@@ -146,6 +135,11 @@ export default class CoocurrenceGraphExample extends Component
 	edges: require('./data/links_'+this.props.selectValuesType[0].Description+'.json'),
 
 	};
+    this.state = {
+        stylediv: ""
+    }
+
+
 
     this.state = {
       graph: newGraph,
@@ -159,6 +153,8 @@ export default class CoocurrenceGraphExample extends Component
     this.neighbourhoodHighlight = this.neighbourhoodHighlight.bind(this);
     //this.redirectToLearn = this.redirectToLearn.bind(this);
     this.neighbourhoodHighlightHide = this.neighbourhoodHighlightHide.bind(  this   );
+
+
   }
 
 
@@ -170,10 +166,6 @@ componentDidUpdate(prevProps)
     ){
 
        let filter=this.props.selectValuesType[0].Description;
-      /* this.props.selectValuesType.forEach(element => {
-            filter= element.Description;
-      });*/
-
 
         let iniNodes =require('./data/nodes_'+filter+'.json');
         iniNodes=Object.values(iniNodes);
@@ -203,27 +195,17 @@ componentDidUpdate(prevProps)
             let locNode =iniNodes.filter(n => n.label === element.from);
 
                 iniNodesArray.push(locNode[0]);
-
-
-
             });
             let locNode =iniNodes.filter(n => n.label === filterto);
             iniNodesArray.push(locNode[0]);
         }
-        console.log(iniNodesArray);
-
-
-
-
-
-
         let newGraph = {
         nodes: iniNodesArray,
         edges: iniLinks,
 
         };
         this.setState({
-        graph: newGraph
+            graph: newGraph
         });
 
         //this.state.graph=newGraph;
@@ -238,23 +220,21 @@ componentDidUpdate(prevProps)
         this.getNetwork = data => {
         this.setState({ network: data });
         };
+
+
       }
-
-          this.state.network.redraw();
-
 }
-
 
  componentDidMount() {
     this.mounted = true;
     window.addEventListener("resize", this.measure);
-
   }
 
   componentWillUnmount() {
     this.mounted = false;
-    window.removeEventListener("resize", this.measure);
+    //window.removeEventListener("resize", this.measure);
 
+    window.addEventListener("resize", this.measure);
 
   }
 
@@ -282,7 +262,6 @@ componentDidUpdate(prevProps)
 
   neighbourhoodHighlight(params, searchData) {
     let allNodes = this.state.graph.nodes;
-    // let cloneNodes = allNodes.map(a => {return {...a}});
     let Nodes = new this.vis.DataSet(allNodes);
     let cloneNodes = Nodes.get({ returnType: "Object" });
 
@@ -299,12 +278,9 @@ componentDidUpdate(prevProps)
 
       //  console.log(cloneNodes[nodeId]);
         cloneNodes[nodeId].color = "rgba(211, 211, 211,0.5)";
-     //   cloneNodes[nodeId].borderColor = "rgba(45, 125, 233)";
-        //cloneNodes[nodeId].borderWidth = 1.5;
        if (cloneNodes[nodeId].hiddenLabel === undefined) {
 
           cloneNodes[nodeId].hiddenColor = cloneNodes[nodeId].color;
-          //cloneNodes[nodeId].color = "rgba(211, 211, 211,0.5)";
           cloneNodes[nodeId].hiddenLabel = cloneNodes[nodeId].label;
           cloneNodes[nodeId].label = undefined;
         }
@@ -410,17 +386,6 @@ componentDidUpdate(prevProps)
     this.state.network.canvas.body.container.style.cursor = "default";
 
 
-  /*  for (var nodeId in allNodess) {
-
-
-      allNodess[nodeId].color =  undefined;
-      if (allNodess[nodeId].hiddenLabel === undefined) {
-
-        allNodess[nodeId].hiddenLabel = allNodess[nodeId].label;
-        allNodess[nodeId].label = undefined;
-      }
-    }*/
-
     highlightActive = true;
     if (highlightActive === true) {
       // reset all nodes
@@ -429,10 +394,7 @@ componentDidUpdate(prevProps)
 
         allNodess[nodeIds].borderWidth= 1.5;
         allNodess[nodeIds].color = {"border":"rgba(43, 124, 233)", "background": '#97C2FC'};
-       // allNodess[nodeIds].color = Nodes.get({ returnType: "Object" });
-        //allNodess[nodeIds].color.border = "#2D7DE9";
 
-        //allNodess[nodeIds].borderWidth= 1.5;
 
         if (allNodess[nodeIds].hiddenLabel !== undefined) {
           allNodess[nodeIds].label = allNodess[nodeIds].hiddenLabel;
@@ -475,29 +437,22 @@ componentDidUpdate(prevProps)
 
   render() {
 
-  const styles = {
-  header: {
-    backgroundImage: "./images/eldiario.jpg",
-    height: '100vh',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover'
-  },
+    let style= "";
+    let currentHideNav = (window.innerWidth <= 760);
+    if (currentHideNav !== this.state.hideNav) {
+        if(currentHideNav)
+            style= "vis-reactMobile";
+        else
+            style=  "vis-react";
 
-  content: {
-    height: '100%',
-    width: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  }
-}
-
+    }
 
   return (
     <Card className="main-card mb-2">
       <CardBody>
            <CardTitle>{this.props.selectValuesType[0].Description}</CardTitle>
-          <div className="vis-react" style={styles.header}>
-             <Fragment>
+          <div className={style}>
+             <Fragment >
                  <Graph
                   graph={this.state.graph}
                   style={ this.state.style}
@@ -514,7 +469,7 @@ componentDidUpdate(prevProps)
       </CardBody>
     </Card>
   )
-
+    console.log(this);
   }
 }
 

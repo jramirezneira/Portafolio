@@ -7,6 +7,12 @@
   height: 40rem;
 
 }
+
+.vis-reactMobile {
+  width: 32rem;
+  height: 20rem;
+
+}
 .vis-react-title {
   text-align: center;
 }
