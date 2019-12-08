@@ -122,7 +122,14 @@ export const ChartsNav = [
 
     },
     {
-        icon: 'pe-7s-graph2',
+        icon: 'pe-7s-global',
+        label: 'Usuarios en el mundo',
+        to: '#/WorldUser/WorldUser',
+
+
+    },
+    {
+        icon: 'pe-7s-display1',
         label: 'Análisis NLP con Spacy',
         to: '#/wordcloud/wordcloud',
     }
@@ -131,8 +138,8 @@ export const ChartsNav = [
 
 export const WordCloudNav = [
     {
-        icon: 'pe-7s-graph2',
-        label: 'Correlación de entidades',
+        icon: 'pe-7s-share',
+        label: 'Correlación de entidades SpaCy',
         to: '#/CoocurrenceGraph/CoocurrenceGraph',
     },
 ];

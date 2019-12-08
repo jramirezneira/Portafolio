@@ -26,15 +26,20 @@ export default class MapUser extends Component
    render() {
 
     let mapData={}
-    let filter="Todos";
+
+    let filterTec="Todos";
+
+
+
+
     this.props.selectValuesTec.forEach(element => {
-        filter= element.tec;
+        filterTec= element.tec;
     });
 
 
     Object.values(listTecByCountry).map(val => {
         Object.values(val).map(val1 => {
-            if (val1.tec == filter  )
+            if (val1.tec == filterTec  )
             {
                 mapData=val1.data;
             }

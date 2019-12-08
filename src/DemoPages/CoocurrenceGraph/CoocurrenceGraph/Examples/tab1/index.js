@@ -167,7 +167,7 @@ export default class ChartJsCircular extends React.Component {
                 </Row>
 
                     <Row>
-                        <Col lg="10">
+                        <Col lg="9">
 
 
                            <CoocurrenceGraphExample selectValuesTo={this.state.selectValuesTo} selectValuesType={this.state.selectValuesType}  />

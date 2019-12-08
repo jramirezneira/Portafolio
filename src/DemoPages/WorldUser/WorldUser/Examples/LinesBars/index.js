@@ -6,6 +6,9 @@ import MapUser from '../MapUser';
 //import HorizontalBarExample from '../horizontalBar';
 //import MixExample from '../mix';
 import { listTypeTechnologies } from "./../data/listTypeTechnologies";
+
+
+
 import { listTypeTechnologiesByType } from "./../data/listTypeTechnologiesByType";
 import Select from "react-dropdown-select";
 import {
@@ -57,18 +60,23 @@ export default class ChartJsLinesBars extends React.Component {
 
     render() {
 
-   let filter="All";
-    this.state.selectValuesType.forEach(element => {
-        filter= element.Description;
-    });
+       let todos= [{"Description":"Todos"}];
+       let listTechnologies=todos.concat(listTypeTechnologies);
+
+       console.log(listTechnologies);
+
+       let filter="Todos";
+        this.state.selectValuesType.forEach(element => {
+            filter= element.Description;
+        });
 
 
-  // let data=  listTypeTechnologiesByType.filter(l => l.Description== filter);
-   let data=  {}
-   if(filter=="All")
-        data = listTypeTechnologiesByType;
-   else
-        data = listTypeTechnologiesByType.filter(l => l.Description== filter);
+      // let data=  listTypeTechnologiesByType.filter(l => l.Description== filter);
+       let data=  {}
+       if(filter=="Todos")
+            data = listTypeTechnologiesByType;
+       else
+            data = listTypeTechnologiesByType.filter(l => l.Description== filter);
 
 
 
@@ -105,10 +113,10 @@ export default class ChartJsLinesBars extends React.Component {
                                               dropdownHeight={this.state.dropdownHeight}
                                               direction={this.state.direction}
                                               multi={this.state.multi}
-                                              values={[listTypeTechnologies.find(opt => opt.Description === "Todos")]}
+                                              values={[listTechnologies.find(opt => opt.Description === listTechnologies[0].Description)]}
                                               labelField={"Description"}
                                               valueField={"Description"}
-                                              options={listTypeTechnologies}
+                                              options={listTechnologies}
                                               dropdownGap={5}
                                               keepSelectedInList={this.state.keepSelectedInList}
                                               onDropdownOpen={() => undefined}
@@ -163,7 +171,7 @@ export default class ChartJsLinesBars extends React.Component {
                                         </Col>
                                         <Col lg="5">
                                         <p className="text-primary">Tecnología</p>
-                                        <Select
+                                      <Select
                                             placeholder="Select peoples"
                                           addPlaceholder={this.state.addPlaceholder}
                                           color={this.state.color}
@@ -179,7 +187,7 @@ export default class ChartJsLinesBars extends React.Component {
                                           dropdownHeight={this.state.dropdownHeight}
                                           direction={this.state.direction}
                                           multi={this.state.multi}
-                                          values={[listTypeTechnologiesByType.find(opt => opt.tec === data[0].tec)]}
+                                          values={[data.find(opt => opt.tec === data[0].tec)]}
                                           labelField={this.state.labelField}
                                           valueField={this.state.valueField}
                                           options={data}
@@ -235,6 +243,7 @@ export default class ChartJsLinesBars extends React.Component {
                                               : undefined
                                           }
                                             />
+
                                         <br></br>
                                     </Col>
                                 </Row>
@@ -251,7 +260,7 @@ export default class ChartJsLinesBars extends React.Component {
                             <CardBody>
                                  <CardTitle>Number of stack overflow users by country and technology</CardTitle>
                                 <div>
-                                    <MapUser  selectValuesTec={this.state.selectValuesTec} />
+                                    <MapUser  selectValuesTec={this.state.selectValuesTec}  />
                                 </div>
                             </CardBody>
                         </Card>

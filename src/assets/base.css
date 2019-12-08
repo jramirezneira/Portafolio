@@ -8503,8 +8503,8 @@ button,
     align-items: center; }
   .app-page-title .page-title-subheading {
     padding: 3px 0 0;
-    font-size: 0.88rem;
-    opacity: .6; }
+    font-size: 0.98rem;
+    opacity: 1; }
     .app-page-title .page-title-subheading .breadcrumb {
       padding: 0;
       margin: 3px 0 0;
