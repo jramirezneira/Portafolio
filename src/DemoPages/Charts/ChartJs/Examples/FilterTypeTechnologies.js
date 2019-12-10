@@ -56,7 +56,7 @@ export default class FilterTypeTechnologies extends Component
    let selectValue=[]
    this.props.parentCallback(selectValue);
 
-    console.log(listTypeTechnologies);
+   // console.log(listTypeTechnologies);
     //this.state.selectValues= dataIni;
 
 

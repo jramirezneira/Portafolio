@@ -25,28 +25,46 @@ export default class MapUser extends Component
 
    render() {
 
+    let dataIni={}
     let mapData={}
 
+    let filterType="Todos";
+    this.props.selectValuesType.forEach(element => {
+        filterType= element.Description;
+    });
+    //Object.values(listTecByCountry).map(val => {
+
+       /* Object.values(val).map(val1 => {
+            if (val1.Description == filterType  )
+            {
+                dataIni=val1;
+            }
+
+        })*/
+    //})
+
+    dataIni = Object.values(listTecByCountry[0]).filter(l => l.Description== filterType);
+
     let filterTec="Todos";
-
-
-
-
     this.props.selectValuesTec.forEach(element => {
         filterTec= element.tec;
     });
+    //Object.values(dataIni).filter(l => l.tec== "python");
+
+   // console.log(Object.values(dataIni).filter(l => l.tec== filterTec));
 
 
-    Object.values(listTecByCountry).map(val => {
-        Object.values(val).map(val1 => {
+
+   // Object.values(mapData).map(val => {
+        Object.values(dataIni).map(val1 => {
             if (val1.tec == filterTec  )
             {
                 mapData=val1.data;
             }
 
         })
-    })
-
+   // })
+    //console.log(mapData);
 
      const handleClick = (e, el, countryCode) => {
      return  el.html(el.html() + " Users: " + mapData[countryCode]);

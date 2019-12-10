@@ -59,7 +59,7 @@ export default class ChartJsCircular extends React.Component {
 
     render() {
 
-    console.log(listTypeTechnologies);
+    //console.log(listTypeTechnologies);
 
         return (
             <Fragment>

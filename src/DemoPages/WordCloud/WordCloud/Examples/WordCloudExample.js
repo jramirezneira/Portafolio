@@ -81,12 +81,25 @@ const options = {
   transitionDuration: 1000,
 };
 
+    let width= 400;
+    let height= 450;
+    let currentHideNav = (window.innerWidth <= 760);
+    if (currentHideNav !== this.state.hideNav) {
+        if(currentHideNav)
+        {
+            width= 380;
+            height= 337;
+        }
+
+    }
+   // console.log(height);
+
     return (
     <div>
       <Resizable
         defaultSize={{
-          width: 450,
-          height: 400,
+          width: {width},
+          height: {height},
         }} style={resizeStyle}
         >
 

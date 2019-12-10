@@ -35,8 +35,8 @@ export default class ChartJSExamples extends Component {
                 />
             </div>
             <div>
-                <Tabs tabsWrapperClass="body-tabs body-tabs-layout" transform={true} showInkBar={true} items={getTabs()}/>
-            </div>
+              <ChartJsCircular/>
+              </div>
             </Fragment>
         );
     }

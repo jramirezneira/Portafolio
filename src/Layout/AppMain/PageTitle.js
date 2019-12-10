@@ -13,7 +13,9 @@ class PageTitle extends Component {
 
             heading,
             icon,
-            subheading
+            subheading,
+            subheading1,
+            subheading2
         } = this.props;
 
         return (
@@ -30,6 +32,14 @@ class PageTitle extends Component {
                             <div
                                 className={cx("page-title-subheading", {'d-none': !enablePageTitleSubheading})}>
                                 {subheading}
+                            </div>
+                            <div
+                                className={cx("page-title-subheading", {'d-none': !enablePageTitleSubheading})}>
+                                {subheading1}
+                            </div>
+                            <div
+                                className={cx("page-title-subheading", {'d-none': !enablePageTitleSubheading})}>
+                                {subheading2}
                             </div>
                         </div>
                     </div>

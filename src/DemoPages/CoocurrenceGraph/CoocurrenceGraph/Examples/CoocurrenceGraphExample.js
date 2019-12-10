@@ -172,7 +172,7 @@ componentDidUpdate(prevProps)
 
         let iniLinks =require('./data/links_'+filter+'.json');
 
-        console.log(this.props);
+       // console.log(this.props);
         let filterto="Todos";
         this.props.selectValuesTo.forEach(element => {
             filterto= element.to;
@@ -346,7 +346,7 @@ componentDidUpdate(prevProps)
       for (let nodeId in cloneNodes) {
 
         cloneNodes[nodeId].color = undefined;
-         console.log(cloneNodes[nodeId]);
+         //console.log(cloneNodes[nodeId]);
         if (cloneNodes[nodeId]["hiddenLabel"] !== undefined) {
           cloneNodes[nodeId].label = cloneNodes[nodeId]["hiddenLabel"];
           const fontSize = this.state.network.body.nodes;
@@ -469,7 +469,7 @@ componentDidUpdate(prevProps)
       </CardBody>
     </Card>
   )
-    console.log(this);
+    //console.log(this);
   }
 }
 

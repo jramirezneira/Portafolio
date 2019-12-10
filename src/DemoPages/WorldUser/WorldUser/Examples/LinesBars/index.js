@@ -63,8 +63,6 @@ export default class ChartJsLinesBars extends React.Component {
        let todos= [{"Description":"Todos"}];
        let listTechnologies=todos.concat(listTypeTechnologies);
 
-       console.log(listTechnologies);
-
        let filter="Todos";
         this.state.selectValuesType.forEach(element => {
             filter= element.Description;
@@ -74,9 +72,16 @@ export default class ChartJsLinesBars extends React.Component {
       // let data=  listTypeTechnologiesByType.filter(l => l.Description== filter);
        let data=  {}
        if(filter=="Todos")
-            data = listTypeTechnologiesByType;
+       {
+
+            //data = listTypeTechnologiesByType;
+            //todos= [{"Description":"Todos","tec":"Todos"}];
+            data = [{"Description":"Todos","tec":"Todos"}];
+
+       }
        else
             data = listTypeTechnologiesByType.filter(l => l.Description== filter);
+
 
 
 
@@ -260,7 +265,7 @@ export default class ChartJsLinesBars extends React.Component {
                             <CardBody>
                                  <CardTitle>Number of stack overflow users by country and technology</CardTitle>
                                 <div>
-                                    <MapUser  selectValuesTec={this.state.selectValuesTec}  />
+                                    <MapUser  selectValuesTec={this.state.selectValuesTec} selectValuesType={this.state.selectValuesType} />
                                 </div>
                             </CardBody>
                         </Card>

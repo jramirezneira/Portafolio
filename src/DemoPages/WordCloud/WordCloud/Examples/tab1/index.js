@@ -69,7 +69,7 @@ export default class ChartJsCircular extends React.Component {
         filter= element.type;
     });
 
-    console.log(this.state.selectValuesType);
+    //console.log(this.state.selectValuesType);
   // let data=  listTypeTechnologiesByType.filter(l => l.Description== filter);
     let data=  {}
 

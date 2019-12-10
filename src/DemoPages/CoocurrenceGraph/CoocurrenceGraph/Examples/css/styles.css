@@ -5,12 +5,22 @@
 .vis-react {
   width: 65rem;
   height: 40rem;
+  display: 'flex';
+  alignItems: 'center';
+  justifyContent: 'center';
+  border: 'solid 1px #ddd';
+  background: '#f0f0f0';
 
 }
 
 .vis-reactMobile {
   width: 28rem;
   height: 18rem;
+  display: 'flex';
+  alignItems: 'center';
+  justifyContent: 'center';
+  border: 'solid 1px #ddd';
+  background: '#f0f0f0';
 
 }
 .vis-react-title {

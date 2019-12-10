@@ -7,20 +7,6 @@ import PageTitle from '../../../Layout/AppMain/PageTitle';
 //import ChartJsCircular from './Examples/Circular';
 import ChartJsLinesBars from './Examples/LinesBars';
 
-const tabsContent = [
-    {
-        title: 'Usuarios por tecnología y país',
-        content: <ChartJsLinesBars/>
-    }
-];
-
-function getTabs() {
-    return tabsContent.map((tab, index) => ({
-        title: tab.title,
-        getContent: () => tab.content,
-        key: index,
-    }));
-}
 
 export default class ChartJSExamples extends Component {
     render() {
@@ -35,7 +21,7 @@ export default class ChartJSExamples extends Component {
                 />
             </div>
             <div>
-                <Tabs tabsWrapperClass="body-tabs body-tabs-layout" transform={true} showInkBar={true} items={getTabs()}/>
+                <ChartJsLinesBars/>
             </div>
             </Fragment>
         );

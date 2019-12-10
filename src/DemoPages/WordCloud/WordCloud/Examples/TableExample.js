@@ -33,7 +33,7 @@ export default class TableExample extends Component
         filter= element.type;
 
     });
- console.log(filter);
+ //console.log(filter);
  let filterTec="Todos";
     this.props.selectValuesTec.forEach(element => {
         filterTec= element.tec;
