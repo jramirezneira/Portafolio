@@ -86,10 +86,10 @@ export default class ChartJsCircular extends React.Component {
                     transitionAppear={true}
                     transitionAppearTimeout={0}
                     transitionEnter={false}
-                    transitionLeave={false}>
+                    transitionLeave={true}>
                     <Row>
                     <Col lg="8">
-                        <Card className="main-card mb-3">
+                        <Card className="main-card mb-1">
                             <CardBody>
                                 <Row>
                                     <Col lg="5">
