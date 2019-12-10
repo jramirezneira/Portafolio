@@ -167,14 +167,14 @@ componentDidUpdate(prevProps)
 
        let filter=this.props.selectValuesType[0].Description;
 
-     
+
 
         let iniNodes = {};
 
-        if (filter=="Abc")
-            iniNodes=require("./data/nodes_Abc.json");
-        else
-            iniNodes=require("./data/nodes_"+filter+".json");
+        //if (filter=="Abc")
+          //  iniNodes=require("./data/nodes_Abc.json");
+        //else
+        iniNodes=require("./data/nodes_"+filter+".json");
 
         iniNodes=Object.values(iniNodes);
 
