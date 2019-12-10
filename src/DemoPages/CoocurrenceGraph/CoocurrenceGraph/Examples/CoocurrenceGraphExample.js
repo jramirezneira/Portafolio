@@ -167,7 +167,9 @@ componentDidUpdate(prevProps)
 
        let filter=this.props.selectValuesType[0].Description;
 
-        let iniNodes =require('./data/nodes_'+filter+'.json');
+        let pathNode= "./data/nodes_"+filter+".json";
+        console.log(pathNode);
+        let iniNodes =require("./data/nodes_"+filter+".json");
         iniNodes=Object.values(iniNodes);
 
         let iniLinks =require('./data/links_'+filter+'.json');
