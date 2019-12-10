@@ -169,7 +169,7 @@ componentDidUpdate(prevProps)
 
         let pathNode= "./data/nodes_"+filter+".json";
         console.log(pathNode);
-        let iniNodes =require("./data/nodes_"+filter+".json");
+        let iniNodes =require(pathNode);
         iniNodes=Object.values(iniNodes);
 
         let iniLinks =require('./data/links_'+filter+'.json');

@@ -124,6 +124,7 @@ export default class ChartJsCircular extends React.Component {
                                               onChange={values => this.setValuesType(values)}
 
                                                 />
+                                                 <br></br>
 
                                         </Col>
                                         <Col><p className="text-primary">Entidad</p>
