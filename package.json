@@ -72,6 +72,7 @@
     "react-responsive-tabs": "^3.0.0",
     "react-router-dom": "^4.4.0-beta.6",
     "react-share": "^3.0.1",
+    "react-social-icons": "^4.1.0",
     "react-toastify": "^4.5.2",
     "react-wordcloud": "^1.1.1",
     "reactstrap": "^6.5.0",
@@ -92,7 +93,6 @@
     "css-loader": "^1.0.1",
     "mocha": "^6.2.1",
     "node-sass": "^4.10.0",
-    "react-social-icons": "^4.1.0",
     "sass-loader": "^6.0.6",
     "uglifyjs-webpack-plugin": "1.2.4",
     "webpack-dev-server": "2.7.1"
