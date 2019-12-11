@@ -8055,7 +8055,7 @@ button,
 .app-header.header-text-light .app-header__mobile-menu .hamburger-inner,
 .app-header.header-text-light .app-header__mobile-menu .hamburger-inner::before,
 .app-header.header-text-light .app-header__mobile-menu .hamburger-inner::after {
-  background: rgba(255, 255, 255, 0.9); }
+  background: rgba(255, 255, 255, 0.2); }
 
 .app-header.header-text-dark .app-header__logo {
   background: rgba(0, 0, 0, 0.1); }

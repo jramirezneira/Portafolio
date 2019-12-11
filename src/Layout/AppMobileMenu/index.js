@@ -71,13 +71,7 @@ class AppMobileMenu extends React.Component {
                 </div>
 
 
-               <div className="app-header__menu">
-                    <div className="app-header-right">
-                        <SocialIcon url="https://www.facebook.com/profile.php?id=1145843195" style={{ height: 30, width: 30 }} />
-                        <SocialIcon url="https://www.linkedin.com/in/javier-ramirez-neira" style={{ height: 30, width: 30 }} />
-                    </div>
-
-                </div>
+              
             </Fragment>
         )
     }
