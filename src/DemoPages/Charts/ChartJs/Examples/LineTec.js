@@ -18,6 +18,16 @@ export default class LineTec extends Component
 
   render() {
 
+    let height= "";
+    let currentHideNav = (window.innerWidth <= 760);
+    if (currentHideNav !== this.state.hideNav) {
+        if(currentHideNav)
+            height= 400;
+        else
+            height=  200;
+    }
+
+
    let filter="Todos";
     this.props.selectValues.forEach(element => {
         filter= element.Description;
@@ -60,7 +70,7 @@ export default class LineTec extends Component
 
 
     return (
-            <Line data={data} options={{ responsive: true }} height={250} />
+            <Line data={data} options={{ responsive: true }} height={height} />
     );
   }
 }

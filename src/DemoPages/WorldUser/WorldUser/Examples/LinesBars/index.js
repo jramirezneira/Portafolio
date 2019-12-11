@@ -84,6 +84,11 @@ export default class ChartJsLinesBars extends React.Component {
 
 
 
+        let filterTec="Todos";
+        this.state.selectValuesTec.forEach(element => {
+            filterTec= element.tec;
+        });
+
 
         return (
             <Fragment>
@@ -263,7 +268,7 @@ export default class ChartJsLinesBars extends React.Component {
                     <Col lg="10">
                         <Card className="main-card mb-2">
                             <CardBody>
-                                 <CardTitle>Number of stack overflow users by country and technology</CardTitle>
+                                 <CardTitle>   {filterTec=="Todos" ? ('Total de usuarios(as) en el mundo') : ("Total usuarios(as) "+ filter + " : "+filterTec)}</CardTitle>
                                 <div>
                                     <MapUser  selectValuesTec={this.state.selectValuesTec} selectValuesType={this.state.selectValuesType} />
                                 </div>

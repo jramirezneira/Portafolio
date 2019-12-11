@@ -59,7 +59,9 @@ export default class ChartJsCircular extends React.Component {
 
     render() {
 
-    //console.log(listTypeTechnologies);
+
+
+
 
         return (
             <Fragment>
@@ -184,8 +186,8 @@ export default class ChartJsCircular extends React.Component {
                             <Card className="main-card mb-3">
                                 <CardBody>
                                     <CardTitle>Las 10 tecnologías más populares en Stack overflow (Octubre 2018 to Septiembre 2019) </CardTitle>
-                                        <div>
-                                            <LineTec selectValues={this.state.selectValues} />
+                                        <div >
+                                            <LineTec selectValues={this.state.selectValues}   />
                                         </div>
                                 </CardBody>
                             </Card>

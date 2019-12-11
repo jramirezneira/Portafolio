@@ -4,7 +4,7 @@
 }
 .vis-react {
   width: 65rem;
-  height: 40rem;
+  height: 60rem;
   display: 'flex';
   alignItems: 'center';
   justifyContent: 'center';
@@ -14,8 +14,8 @@
 }
 
 .vis-reactMobile {
-  width: 26rem;
-  height: 16rem;
+  width: 25rem;
+  height: 25rem;
   display: 'flex';
   alignItems: 'center';
   justifyContent: 'center';

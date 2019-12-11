@@ -23,6 +23,16 @@ export default class BarLineTec extends Component
 
   render() {
 
+
+    let height= "";
+    let currentHideNav = (window.innerWidth <= 760);
+    if (currentHideNav !== this.state.hideNav) {
+        if(currentHideNav)
+            height= 300;
+        else
+            height=  100;
+    }
+
     let filter="Todos";
 
 
@@ -102,7 +112,7 @@ export default class BarLineTec extends Component
 
 
     return (
-            <Bar data={DataByTec} options={{ responsive: true }}  />
+            <Bar data={DataByTec} options={{ responsive: true }}   height={height} />
     );
   }
 }

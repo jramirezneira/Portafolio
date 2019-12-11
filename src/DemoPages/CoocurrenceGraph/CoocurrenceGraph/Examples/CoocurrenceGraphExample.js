@@ -250,24 +250,6 @@ componentDidUpdate(prevProps)
     this.state.network.redraw();
     this.state.network.fit();
   }
-/*
-  redirectToLearn(params, searchData) {
-    const result = this.getObjects(
-      this.state.graph.nodes,
-      "id",
-      this.state.network.getNodeAt(params.pointer.DOM)
-    );
-    //console.log(this.state.network.getNodeAt(params.pointer.DOM));
-    if (this.state.network.getNodeAt(params.pointer.DOM) !== undefined) {
-     //const result = getObjects(this.state.graph.nodes, 'id', this.state.network.getNodeAt(params.pointer.DOM));
-
-      if (result[0]) {
-        console.log(result[0]);
-        // window.open('/' + result[0].concept_url, '_blank');
-      }
-    }
-  }*/
-
   neighbourhoodHighlight(params, searchData) {
     let allNodes = this.state.graph.nodes;
     let Nodes = new this.vis.DataSet(allNodes);

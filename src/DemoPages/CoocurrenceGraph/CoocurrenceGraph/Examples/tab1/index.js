@@ -89,7 +89,7 @@ export default class ChartJsCircular extends React.Component {
                     transitionLeave={true}>
                     <Row>
                     <Col lg="8">
-                        <Card className="main-card mb-1">
+                        <Card className="main-card mb-2">
                             <CardBody>
                                 <Row>
                                     <Col lg="5">

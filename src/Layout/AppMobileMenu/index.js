@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import Hamburger from 'react-hamburgers';
 
 import cx from 'classnames';
-
+import { SocialIcon } from 'react-social-icons';
 import {
     faEllipsisV,
 
@@ -69,15 +69,14 @@ class AppMobileMenu extends React.Component {
                         />
                     </div>
                 </div>
-                <div className="app-header__menu">
-                    <span onClick={this.toggleMobileSmall}>
-                        <Button size="sm"
-                                className={cx("btn-icon btn-icon-only", {active: this.state.activeSecondaryMenuMobile})}
-                                color="primary"
-                                onClick={() => this.setState({activeSecondaryMenuMobile: !this.state.activeSecondaryMenuMobile})}>
-                            <div className="btn-icon-wrapper"><FontAwesomeIcon icon={faEllipsisV}/></div>
-                        </Button>
-                    </span>
+
+
+               <div className="app-header__menu">
+                    <div className="app-header-right">
+                        <SocialIcon url="https://www.facebook.com/profile.php?id=1145843195" style={{ height: 30, width: 30 }} />
+                        <SocialIcon url="https://www.linkedin.com/in/javier-ramirez-neira" style={{ height: 30, width: 30 }} />
+                    </div>
+
                 </div>
             </Fragment>
         )

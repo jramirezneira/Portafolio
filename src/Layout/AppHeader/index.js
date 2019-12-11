@@ -12,6 +12,7 @@ import UserBox from './Components/UserBox';
 
 class Header extends React.Component {
     render() {
+
         let {
             headerBackgroundColor,
             enableMobileMenuSmall=false,
@@ -34,9 +35,6 @@ class Header extends React.Component {
                         "app-header__content",
                         {'header-mobile-open': enableMobileMenuSmall},
                     )}>
-                        <div className="app-header-left">
-
-                        </div>
 
                     </div>
                 </ReactCSSTransitionGroup>

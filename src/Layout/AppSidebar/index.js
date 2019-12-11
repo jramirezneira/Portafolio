@@ -3,8 +3,13 @@ import {connect} from 'react-redux';
 import cx from 'classnames';
 
 import Nav from '../AppNav/VerticalNavWrapper';
-
+import { SocialIcon } from 'react-social-icons';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {
+    Row, Col,
+    Card, CardBody,
+    CardTitle
+} from 'reactstrap';
 
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import HeaderLogo from '../AppLogo';
@@ -40,21 +45,42 @@ class AppSidebar extends Component {
                     transitionName="SidebarAnimation"
                     transitionAppear={true}
                     transitionAppearTimeout={1500}
-                    transitionEnter={false}
+                    transitionEnter={true}
                     transitionLeave={true}>
                     <HeaderLogo/>
-                    <PerfectScrollbar>
+                    <PerfectScrollbar >
                         <div className="app-sidebar__inner">
                             <Nav/>
                         </div>
+                        <div class="row justify-content-center align-self-bottom" >
+                            <div>
+                                 <Row>
+                                    <Col lg="4">
+                                        <SocialIcon url="https://www.facebook.com/profile.php?id=1145843195" style={{ height: 30, width: 30 }} />
+                                    </Col>
+                                    <Col lg="4">
+                                        <SocialIcon url="https://www.linkedin.com/in/javier-ramirez-neira" style={{ height: 30, width: 30 }} />
+                                    </Col>
+                                 </Row>
+                            </div>
+                            <div class="container my-auto">
+                              <div class="copyright text-center my-auto">
+                                <span class="text-light">Javier Ramírez Neira 2019</span>
+                              </div>
+                            </div>
+                        </div>
+
                     </PerfectScrollbar>
                     <div
                         className={cx("app-sidebar-bg", backgroundImageOpacity)}
                         style={{
                             backgroundImage: enableBackgroundImage ? 'url(' + backgroundImage + ')' : null
                         }}>
+
                     </div>
+
                 </ReactCSSTransitionGroup>
+
             </Fragment>
         )
     }
