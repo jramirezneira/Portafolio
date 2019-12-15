@@ -4,9 +4,29 @@ import ReactWordcloud from 'react-wordcloud';
 import { Resizable } from 're-resizable';
 
 
+const resizeStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  border: 'solid 1px #ddd',
+  background: '#f0f0f0',
+};
 
-
-
+const options = {
+  colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'],
+  enableTooltip: true,
+  deterministic: false,
+  fontFamily: 'impact',
+  fontSizes: [5, 70],
+  fontStyle: 'normal',
+  fontWeight: 'normal',
+  padding: 1,
+  rotations: 3,
+  rotationAngles: [-30, 30],
+  scale: 'sqrt',
+  spiral: 'archimedean',
+  transitionDuration: 1000,
+};
 
 
 export default class WordCloudExample extends Component
@@ -25,14 +45,8 @@ export default class WordCloudExample extends Component
 
   render() {
 
-const resizeStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  border: 'solid 1px #ddd',
-  background: '#f0f0f0',
-};
 
+/*
  let filter="language";
     this.props.selectValuesType.forEach(element => {
         filter= element.type;
@@ -63,23 +77,9 @@ const resizeStyle = {
 
 
 
+*/
 
 
-const options = {
-  colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b'],
-  enableTooltip: true,
-  deterministic: false,
-  fontFamily: 'impact',
-  fontSizes: [5, 70],
-  fontStyle: 'normal',
-  fontWeight: 'normal',
-  padding: 1,
-  rotations: 3,
-  rotationAngles: [-30, 30],
-  scale: 'sqrt',
-  spiral: 'archimedean',
-  transitionDuration: 1000,
-};
 
     let width= 400;
     let height= 450;
@@ -103,7 +103,7 @@ const options = {
         }} style={resizeStyle}
         >
 
-          <ReactWordcloud options={options}  words={data}  />
+          <ReactWordcloud options={options}  words={this.props.dataWords}   />
 
       </Resizable>
     </div>

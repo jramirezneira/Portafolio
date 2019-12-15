@@ -5,19 +5,26 @@ import { Resizable } from 're-resizable';
 import Graph from 'vis-react';
 //import MediaQuery from 'react-responsive'
 import "./css/styles.css";
+
 import {
     Card, CardBody,
     CardTitle
 } from 'reactstrap';
 
 
-
+const resizeStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  border: 'solid 1px #ddd',
+  background: '#f0f0f0',
+};
 
 var highlightActive = false;
 let options = {
     autoResize: true,
-    width:"50%",
-    height:"100%",
+    width:"600",
+    height:"600",
     //configure:{showButton:true},
   layout: {
     randomSeed: 9,
@@ -32,11 +39,7 @@ let options = {
     },
     shape: "dot",
     size: 1,
-   // color:"rgba(151, 194, 252)",
-   /* color:{
-        border: "rgba(45, 125, 233)",
-
-    },*/
+  
     borderWidth: 1.5,
     borderWidthSelected: 2,
 
@@ -92,9 +95,8 @@ let options = {
 
 
 
+export default class CoocurrenceGraphExample extends React.Component<{}, {width: number, height: number}> {
 
-export default class CoocurrenceGraphExample extends Component
-{
 
    setState(stateObj) {
     if (this.mounted) {
@@ -429,10 +431,75 @@ componentDidUpdate(prevProps)
     const chapterLabel = "./images/eldiario.jpg";
 
   };
+   state = {width: 200, height: 200};
+
+  onClick = () => {
+    this.setState({width: 200, height: 200});
+  };
+
+  onResize = (event, {element, size, handle}) => {
+    this.setState({width: size.width, height: size.height});
+  };
+
 
   render() {
 
-    let style= "";
+    let width=window.innerWidth*0.95;
+    let height=window.innerHeight;
+
+
+    if (width <=800)
+        options.width=width +"px";
+    else
+        options.width="800px";
+
+    if (height <=800)
+        options.height=window.innerHeight +"px";
+    else
+        options.height="800px";
+
+
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+
+    /*if (currentHideNav !== this.state.hideNav) {
+        if(currentHideNav)
+        {
+            options.width="50%";
+            options.height="50%";
+        }
+        else
+        {
+            options.width="100%";
+            options.height="100%";
+        }
+
+    }*/
+
+
+
+return (
+      <div>
+
+            <span>{window.innerWidth}</span>
+
+
+                <Graph
+                  graph={this.state.graph}
+                  style={ this.state.style}
+                  options={options}
+                  getNetwork={this.getNetwork}
+                  getEdges={this.getEdges}
+                  getNodes={this.getNodes}
+                  events={this.events}
+                  vis={vis => (this.vis = vis)}
+                />
+
+
+      </div>
+    );
+
+   /* let style= "";
     let currentHideNav = (window.innerWidth <= 760);
     if (currentHideNav !== this.state.hideNav) {
         if(currentHideNav)
@@ -447,29 +514,7 @@ componentDidUpdate(prevProps)
         }
 
     }
-    console.log(options.width);
-  return (
-    <Card className="main-card mb-2">
-      <CardBody>
-           <CardTitle>{this.props.selectValuesType[0].Description}</CardTitle>
-          <div className={"vis-react"}>
-             <Fragment >
-                 <Graph
-                  graph={this.state.graph}
-                  style={ this.state.style}
-                  options={options}
-                  getNetwork={this.getNetwork}
-                  getEdges={this.getEdges}
-                  getNodes={this.getNodes}
-                  events={this.events}
-                  vis={vis => (this.vis = vis)}
-                />
-
-             </Fragment>
-          </div>
-      </CardBody>
-    </Card>
-  )
+    console.log(options.width);*/
     //console.log(this);
   }
 }

@@ -3,11 +3,11 @@
   text-align: center;
 }
 .vis-react {
-  width: 65rem;
-  height: 60rem;
+  width: 100rem;
+  height: 100rem;
   display: 'flex';
   alignItems: 'center';
-  justifyContent: 'center';
+  justifyContent: '0';
   border: 'solid 1px #ddd';
   background: '#f0f0f0';
 

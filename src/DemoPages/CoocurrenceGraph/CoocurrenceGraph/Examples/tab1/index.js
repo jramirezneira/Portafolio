@@ -88,7 +88,7 @@ export default class ChartJsCircular extends React.Component {
                     transitionEnter={false}
                     transitionLeave={true}>
                     <Row>
-                    <Col lg="8">
+                    <Col lg="9">
                         <Card className="main-card mb-2">
                             <CardBody>
                                 <Row>
@@ -170,9 +170,17 @@ export default class ChartJsCircular extends React.Component {
                     <Row>
                         <Col lg="9">
 
+                            <Card className="main-card mb-2">
+                                <CardBody>
+                                    <Row>
+                                        <Col lg="5">
+                                            <p className="text-primary">Diario</p>
+                                            <CoocurrenceGraphExample selectValuesTo={this.state.selectValuesTo} selectValuesType={this.state.selectValuesType}  />
 
-                           <CoocurrenceGraphExample selectValuesTo={this.state.selectValuesTo} selectValuesType={this.state.selectValuesType}  />
-
+                                        </Col>
+                                    </Row>
+                                </CardBody>
+                             </Card>
                         </Col>
                     </Row>
 

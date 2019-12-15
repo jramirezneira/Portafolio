@@ -20,35 +20,35 @@ export default class ChartJsCircular extends React.Component {
 
         constructor(props) {
         super(props);
-                this.state = {
-            dropdownOpen: false,
-             multi: false,
-                  disabled: false,
-                  loading: false,
-                  contentRenderer: false,
-                  dropdownRenderer: false,
-                  inputRenderer: false,
-                  itemRenderer: false,
-                  optionRenderer: false,
-                  noDataRenderer: false,
-                  selectValuesType: [],
-                  selectValuesTec: [],
-                  selectValuesLabels: [],
-                  searchBy: "username",
-                  clearable: false,
-                  searchable: false,
-                  create: false,
-                  separator: false,
-                  forceOpen: false,
-                  handle: true,
-                  addPlaceholder: "",
-
-                  color: "#0074D9",
-                  keepSelectedInList: true,
-                  closeOnSelect: false,
-                  dropdownPosition: "bottom",
-                  direction: "ltr",
-                  dropdownHeight: "300px"
+            this.state = {
+                words: require('./../data/words.json'),
+                dropdownOpen: false,
+                multi: false,
+                disabled: false,
+                loading: false,
+                contentRenderer: false,
+              dropdownRenderer: false,
+              inputRenderer: false,
+              itemRenderer: false,
+              optionRenderer: false,
+              noDataRenderer: false,
+              selectValuesType: [],
+              selectValuesTec: [],
+              selectValuesLabels: [],
+              searchBy: "username",
+              clearable: false,
+              searchable: false,
+              create: false,
+              separator: false,
+              forceOpen: false,
+              handle: true,
+              addPlaceholder: "",
+              color: "#0074D9",
+              keepSelectedInList: true,
+              closeOnSelect: false,
+              dropdownPosition: "bottom",
+              direction: "ltr",
+              dropdownHeight: "300px"
 
         };
 
@@ -74,6 +74,38 @@ export default class ChartJsCircular extends React.Component {
     let data=  {}
 
     data = listTypeTechnologiesByType.filter(l => l.type== filter);
+
+
+
+     let filterType="language";
+     this.state.selectValuesType.forEach(element => {
+        filterType= element.type;
+
+     });
+
+     let filterTec="Todos";
+        this.state.selectValuesTec.forEach(element => {
+            filterTec= element.tec;
+
+        });
+
+     let filterLabel="Todos";
+        this.state.selectValuesLabels.forEach(element => {
+            filterLabel= element.text;
+
+        });
+
+
+     let dataWords={};
+     dataWords = this.state.words.filter(l => l.type== filter);
+
+     if (filterTec !="Todos")
+        dataWords = dataWords.filter(l => l.tec== filterTec);
+
+     if (filterLabel !="Todos")
+        dataWords = dataWords.filter(l => l.label== filterLabel);
+
+     //console.log(dataWords);
 
 
         return (
@@ -207,10 +239,10 @@ export default class ChartJsCircular extends React.Component {
 
                                         <Row>
                                             <Col lg="7">
-                                                <WordCloudExample selectValuesLabels={this.state.selectValuesLabels} selectValuesType={this.state.selectValuesType}  selectValuesTec={this.state.selectValuesTec}  />
+                                                <WordCloudExample dataWords={dataWords}   />
                                             </Col>
                                             <Col lg="5">
-                                                 <TableExample selectValuesLabels={this.state.selectValuesLabels} selectValuesType={this.state.selectValuesType}  selectValuesTec={this.state.selectValuesTec}  />
+                                                 <TableExample dataWords={dataWords}  />
                                             </Col>
                                         </Row>
 
