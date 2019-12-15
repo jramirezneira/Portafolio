@@ -39,7 +39,7 @@ let options = {
     },
     shape: "dot",
     size: 1,
-  
+
     borderWidth: 1.5,
     borderWidthSelected: 2,
 
@@ -444,8 +444,8 @@ componentDidUpdate(prevProps)
 
   render() {
 
-    let width=window.innerWidth*0.95;
-    let height=window.innerHeight;
+    let width=window.innerWidth*0.8;
+    let height=window.innerHeight * 1.1;
 
 
     if (width <=800)
@@ -454,13 +454,11 @@ componentDidUpdate(prevProps)
         options.width="800px";
 
     if (height <=800)
-        options.height=window.innerHeight +"px";
+        options.height=height +"px";
     else
         options.height="800px";
 
 
-    console.log(window.innerWidth);
-    console.log(window.innerHeight);
 
     /*if (currentHideNav !== this.state.hideNav) {
         if(currentHideNav)
@@ -481,7 +479,6 @@ componentDidUpdate(prevProps)
 return (
       <div>
 
-            <span>{window.innerWidth}</span>
 
 
                 <Graph

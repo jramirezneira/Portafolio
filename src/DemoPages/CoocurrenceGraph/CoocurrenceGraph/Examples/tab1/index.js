@@ -170,11 +170,11 @@ export default class ChartJsCircular extends React.Component {
                     <Row>
                         <Col lg="9">
 
-                            <Card className="main-card mb-2">
+                            <Card className="main-card mb-1">
                                 <CardBody>
                                     <Row>
                                         <Col lg="5">
-                                            <p className="text-primary">Diario</p>
+                                            <CardTitle className="text-primary">{this.state.selectValuesType[0].Description}</CardTitle>
                                             <CoocurrenceGraphExample selectValuesTo={this.state.selectValuesTo} selectValuesType={this.state.selectValuesType}  />
 
                                         </Col>
