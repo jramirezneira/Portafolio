@@ -444,7 +444,7 @@ componentDidUpdate(prevProps)
 
   render() {
 
-    let width=window.innerWidth*0.8;
+    let width=window.innerWidth*0.85;
     let height=window.innerHeight * 1.1;
 
 
@@ -477,23 +477,18 @@ componentDidUpdate(prevProps)
 
 
 return (
-      <div>
 
+            <Graph
+              graph={this.state.graph}
+              style={ this.state.style}
+              options={options}
+              getNetwork={this.getNetwork}
+              getEdges={this.getEdges}
+              getNodes={this.getNodes}
+              events={this.events}
+              vis={vis => (this.vis = vis)}
+            />
 
-
-                <Graph
-                  graph={this.state.graph}
-                  style={ this.state.style}
-                  options={options}
-                  getNetwork={this.getNetwork}
-                  getEdges={this.getEdges}
-                  getNodes={this.getNodes}
-                  events={this.events}
-                  vis={vis => (this.vis = vis)}
-                />
-
-
-      </div>
     );
 
    /* let style= "";
