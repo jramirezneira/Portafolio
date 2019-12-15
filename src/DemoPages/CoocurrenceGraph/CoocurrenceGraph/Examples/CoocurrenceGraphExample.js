@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { Resizable } from 're-resizable';
 import Graph from 'vis-react';
-import MediaQuery from 'react-responsive'
+//import MediaQuery from 'react-responsive'
 import "./css/styles.css";
 import {
     Card, CardBody,
@@ -15,8 +15,13 @@ import {
 
 var highlightActive = false;
 let options = {
+    autoResize: true,
+    width:"50%",
+    height:"100%",
+    //configure:{showButton:true},
   layout: {
-    randomSeed: 9
+    randomSeed: 9,
+
   },
 
   nodes: {
@@ -431,17 +436,23 @@ componentDidUpdate(prevProps)
     let currentHideNav = (window.innerWidth <= 760);
     if (currentHideNav !== this.state.hideNav) {
         if(currentHideNav)
-            style= "vis-reactMobile";
+        {
+            options.width="50%";
+            options.height="50%";
+        }
         else
-            style=  "vis-react";
+        {
+            options.width="100%";
+            options.height="100%";
+        }
 
     }
-
+    console.log(options.width);
   return (
     <Card className="main-card mb-2">
       <CardBody>
            <CardTitle>{this.props.selectValuesType[0].Description}</CardTitle>
-          <div className={style}>
+          <div className={"vis-react"}>
              <Fragment >
                  <Graph
                   graph={this.state.graph}
