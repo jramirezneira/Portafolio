@@ -3,6 +3,16 @@ import { Line, Bar } from "react-chartjs-2";
 import { dataSummary } from "./data/dataSummary";
 
 
+
+const options= {
+        legend: {
+            display: true,
+            responsive: true,
+            position:"bottom"
+        }
+    }
+
+
 export default class BarLineTec extends Component
 {
  constructor(props) {
@@ -112,7 +122,7 @@ export default class BarLineTec extends Component
 
 
     return (
-            <Bar data={DataByTec} options={{ responsive: true }}   height={height} />
+            <Bar data={DataByTec} options={options}   height={height} />
     );
   }
 }

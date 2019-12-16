@@ -110,11 +110,11 @@ export const setBackgroundImage = backgroundImage => ({
 });
 
 export default function reducer(state = {
-    backgroundColor: 'bg-happy-green sidebar-text-light',
-    headerBackgroundColor: 'bg-grow-early header-text-light',
+    backgroundColor: 'bg-javier sidebar-text-dark',
+    headerBackgroundColor: 'bg-heavy-rain header-text-dark',
     enableMobileMenuSmall: '',
     enableBackgroundImage: true,
-    enableClosedSidebar: false,
+    enableClosedSidebar: true,
     enableFixedHeader: true,
     enableHeaderShadow: true,
     enableSidebarShadow: true,

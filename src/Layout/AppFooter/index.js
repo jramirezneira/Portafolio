@@ -8,8 +8,10 @@ class AppFooter extends React.Component {
             <Fragment>
                 <div className="app-footer">
                     <div className="app-footer__inner">
-                        <div className="app-footer-left">
-
+                        <div className="app-footer-right">
+                          <div class="copyright text-center my-auto">
+                                <span class="text-light">Javier Ramírez Neira 2019</span>
+                          </div>
                         </div>
 
                     </div>

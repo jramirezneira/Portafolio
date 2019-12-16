@@ -4,7 +4,14 @@ import { dataSummaryByTime } from "./data/dataSummaryByTime";
 import { listTypeTechnologiesByType } from "./data/listTypeTechnologiesByType";
 
 
-
+const options= {
+        legend: {
+            display: true,
+            responsive: true,
+            position:"bottom",
+            boxWidth:1000
+        }
+    }
 
 export default class LineTec extends Component
 {
@@ -70,7 +77,7 @@ export default class LineTec extends Component
 
 
     return (
-            <Line data={data} options={{ responsive: true }} height={height} />
+            <Line data={data} options={options} height={height} />
     );
   }
 }

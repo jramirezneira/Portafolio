@@ -459,23 +459,6 @@ componentDidUpdate(prevProps)
         options.height="800px";
 
 
-
-    /*if (currentHideNav !== this.state.hideNav) {
-        if(currentHideNav)
-        {
-            options.width="50%";
-            options.height="50%";
-        }
-        else
-        {
-            options.width="100%";
-            options.height="100%";
-        }
-
-    }*/
-
-
-
 return (
 
             <Graph

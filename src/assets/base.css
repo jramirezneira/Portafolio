@@ -8919,6 +8919,11 @@ button,
     text-align: center;
     display: block; }
 
+
+.bg-javier {
+  background-image: linear-gradient(to bottom, #FFFFFF 30%, #3F3F3F 100%, #FFFFFF 300%), linear-gradient(to top, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 200%) !important;
+  background-blend-mode: multiply; }
+
 .bg-warm-flame {
   background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%) !important; }
 

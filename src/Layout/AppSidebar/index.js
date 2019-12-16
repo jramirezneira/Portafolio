@@ -55,10 +55,10 @@ class AppSidebar extends Component {
                         <div class="row justify-content-center align-self-bottom" >
                             <div>
                                  <Row>
-                                    <Col lg="4">
+                                    <Col lg="5">
                                         <SocialIcon url="https://www.facebook.com/profile.php?id=1145843195" style={{ height: 30, width: 30 }} />
                                     </Col>
-                                    <Col lg="4">
+                                    <Col lg="5">
                                         <SocialIcon url="https://www.linkedin.com/in/javier-ramirez-neira" style={{ height: 30, width: 30 }} />
                                     </Col>
                                  </Row>

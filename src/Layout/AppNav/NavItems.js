@@ -139,7 +139,15 @@ export const ChartsNav = [
 export const WordCloudNav = [
     {
         icon: 'pe-7s-share',
-        label: 'Red de entidades con SpaCy',
+        label: 'Entidades con SpaCy',
+        to: '#/CoocurrenceGraph/CoocurrenceGraph',
+    },
+];
+
+export const Inicio = [
+    {
+        icon: 'pe-7s-share',
+        label: 'Entidades con SpaCy',
         to: '#/CoocurrenceGraph/CoocurrenceGraph',
     },
 ];
