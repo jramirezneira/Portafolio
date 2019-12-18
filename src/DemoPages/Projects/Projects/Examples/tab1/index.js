@@ -56,7 +56,7 @@ export default class ChartJsCircular extends React.Component {
 
                         <Col lg="10">
                             <CardGroup >
-                              <Card style={{ width: '20rem' }} className="main-card ml-4">
+                              <Card style={{ width: '20rem' }} className="main-card ml-2  mr-2">
                                 <CardImg top width="50%" src={require('./../images/project1.png')} alt="Card image cap" />
                                 <CardBody>
                                   <CardTitle>Dashboard Stack Overflow</CardTitle>
@@ -69,7 +69,7 @@ export default class ChartJsCircular extends React.Component {
                               </Card>
 
 
-                              <Card style={{ width: '20rem' }} className="main-card ml-4">
+                              <Card style={{ width: '20rem' }} className="main-card ml-2  mr-2">
                                 <CardImg top width="50%" src={require('./../images/project2.png')} alt="Card image cap" />
                                 <CardBody>
                                   <CardTitle>Stack Overflow en el mundo</CardTitle>
@@ -84,7 +84,7 @@ export default class ChartJsCircular extends React.Component {
 
 
 
-                               <Card style={{ width: '20rem' }} className="main-card ml-4">
+                               <Card style={{ width: '20rem' }} className="main-card ml-2  mr-2">
                                 <CardImg src={require('./../images/project3.png')} alt="Card image cap" />
                                 <CardBody style={{high:'25rem' }}>
                                   <CardTitle>Wordcloud Stack Overflow</CardTitle>
@@ -100,7 +100,7 @@ export default class ChartJsCircular extends React.Component {
 
 
 
-                               <Card style={{ width: '20rem', high:'10rem' }} className="main-card ml-4">
+                               <Card style={{ width: '20rem', high:'10rem' }} className="main-card ml-2 mr-2">
                                 <CardImg src={require('./../images/project4.png')} alt="Card image cap" />
                                 <CardBody>
                                   <CardTitle>Correlación de entidades en noticias políticas de diarios Españoles</CardTitle>
