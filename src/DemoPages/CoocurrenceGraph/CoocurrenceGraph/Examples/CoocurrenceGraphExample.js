@@ -461,7 +461,7 @@ componentDidUpdate(prevProps)
 
 return (
 
-            <Graph className="ml-2  mr-2"
+            <Graph
               graph={this.state.graph}
               style={ this.state.style}
               options={options}
