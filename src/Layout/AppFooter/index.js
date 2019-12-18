@@ -10,7 +10,7 @@ class AppFooter extends React.Component {
                     <div className="app-footer__inner">
                         <div className="app-footer-right">
                           <div class="copyright text-center my-auto">
-                                <span class="text-light">Javier Ramírez Neira 2019</span>
+                                <span class="text-dark">Javier Ramírez Neira 2019</span>
                           </div>
                         </div>
 

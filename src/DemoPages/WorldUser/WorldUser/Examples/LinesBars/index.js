@@ -266,7 +266,7 @@ export default class ChartJsLinesBars extends React.Component {
 
                 <Row>
                     <Col lg="10">
-                        <Card className="main-card mb-2">
+                        <Card className="main-card mb-3">
                             <CardBody>
                                  <CardTitle>   {filterTec=="Todos" ? ('Total de usuarios(as) en el mundo') : ("Total usuarios(as) "+ filter + " : "+filterTec)}</CardTitle>
                                 <div>

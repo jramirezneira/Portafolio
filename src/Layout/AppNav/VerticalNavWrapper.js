@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom';
 
 import MetisMenu from 'react-metismenu';
 import { SocialIcon } from 'react-social-icons';
-import {WordCloudNav, ChartsNav} from './NavItems';
+import {WordCloudNav, ChartsNav, Inicio} from './NavItems';
 import {
     Row, Col,
     Card, CardBody,
@@ -23,6 +23,10 @@ class Nav extends Component {
 
         return (
             <Fragment>
+
+                 <h5 className="app-sidebar__heading">Inicio</h5>
+                <MetisMenu content={Inicio} activeLinkFromLocation className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>
+
                 <h5 className="app-sidebar__heading">Stack Overflow</h5>
                 <MetisMenu content={ChartsNav} activeLinkFromLocation className="vertical-nav-menu" iconNamePrefix="" classNameStateIcon="pe-7s-angle-down"/>
 

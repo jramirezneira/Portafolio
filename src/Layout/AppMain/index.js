@@ -10,7 +10,7 @@ const Charts = lazy(() => import('../../DemoPages/Charts'));
 const WordCloud = lazy(() => import('../../DemoPages/WordCloud'));
 const CoocurrenceGraph = lazy(() => import('../../DemoPages/CoocurrenceGraph'));
 const WorldUser = lazy(() => import('../../DemoPages/WorldUser'));
-
+const Projects = lazy(() => import('../../DemoPages/Projects'));
 
 
 
@@ -22,67 +22,19 @@ const AppMain = () => {
     return (
         <Fragment>
 
-            {/* Components */}
-
-            <Suspense fallback={
-                <div className="loader-container">
-                    <div className="loader-container-inner">
-                        <h6 className="mt-5">
-                            Please wait while we load all the Components examples
-                            <small>Because this is a demonstration we load at once all the Components examples. This wouldn't happen in a real live app!</small>
-                        </h6>
-                    </div>
-                </div>
-            }>
-            {/*    <Route path="/components" component={Components}/> */}
-            </Suspense>
-
-            {/* Forms */}
-
-            <Suspense fallback={
-                <div className="loader-container">
-                    <div className="loader-container-inner">
-                        <h6 className="mt-5">
-                            Please wait while we load all the Forms examples
-                            <small>Because this is a demonstration we load at once all the Forms examples. This wouldn't happen in a real live app!</small>
-                        </h6>
-                    </div>
-                </div>
-            }>
-             {/*   <Route path="/forms" component={Forms}/>*/}
-            </Suspense>
-
-
-
-            {/* Tables */}
-
-            <Suspense fallback={
-                <div className="loader-container">
-                    <div className="loader-container-inner">
-                        <h6 className="mt-5">
-                            Please wait while we load all the Tables examples
-                            <small>Because this is a demonstration we load at once all the Tables examples. This wouldn't happen in a real live app!</small>
-                        </h6>
-                    </div>
-                </div>
-            }>
-             {/*  <Route path="/tables" component={Tables}/>*/}
-            </Suspense>
-
-            {/* Elements */}
 
             <Suspense fallback={
                 <div className="loader-container">
                     <div className="loader-container-inner">
                         <h6 className="mt-3">
-                            Please wait while we load all the Elements examples
-                            <small>Because this is a demonstration we load at once all the Elements examples. This wouldn't happen in a real live app!</small>
-                        </h6>
+                            Cargando dashboard...
+                         </h6>
                     </div>
                 </div>
             }>
-             {/*   <Route path="/elements" component={Elements}/>*/}
+                <Route path="/Projects" component={Projects}/>
             </Suspense>
+
 
             {/* Dashboard Widgets */}
 
@@ -142,7 +94,7 @@ const AppMain = () => {
             </Suspense>
 
             <Route exact path="/" render={() => (
-                <Redirect to="/charts/chartjs"/>
+                <Redirect to="/Projects/Projects"/>
             )}/>
             <ToastContainer/>
         </Fragment>

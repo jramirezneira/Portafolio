@@ -444,7 +444,7 @@ componentDidUpdate(prevProps)
 
   render() {
 
-    let width=window.innerWidth*0.85;
+    let width=window.innerWidth*0.8;
     let height=window.innerHeight * 1.1;
 
 

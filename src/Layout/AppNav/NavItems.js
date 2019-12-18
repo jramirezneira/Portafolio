@@ -146,8 +146,8 @@ export const WordCloudNav = [
 
 export const Inicio = [
     {
-        icon: 'pe-7s-share',
-        label: 'Entidades con SpaCy',
-        to: '#/CoocurrenceGraph/CoocurrenceGraph',
+        icon: 'pe-7s-light',
+        label: 'Proyectos',
+        to: '#/Projects/Projects',
     },
 ];

@@ -83,7 +83,7 @@ export default class MapUser extends Component
           zoomOnScroll={false}
           containerStyle={{
             width: "200px",
-            height: "580px"
+            height: "540px"
           }}
           onRegionClick={this.handleClick} // gets the country code
           containerClassName="map"
