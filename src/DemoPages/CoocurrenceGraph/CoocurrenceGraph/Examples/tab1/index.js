@@ -70,13 +70,6 @@ export default class ChartJsCircular extends React.Component {
         jsonNodeTo=require("./../data/Nodesto_"+ listNewspaper[0].Description +".json");
 
 
-   /*let data=  {}
-   if(filter=="All")
-        data = listTypeTechnologiesByType;
-   else
-        data = listTypeTechnologiesByType.filter(l => l.Description== filter);
-*/
-
 
         return (
             <Fragment>
@@ -171,7 +164,7 @@ export default class ChartJsCircular extends React.Component {
                         <Col lg="9">
 
                             <Card className="main-card mb-1">
-                                <CardBody>
+                                <CardBody >
                                     <Row>
                                         <Col lg="5">
                                             <CardTitle className="text-primary">{this.state.selectValuesType[0].Description}</CardTitle>

@@ -266,12 +266,12 @@ export default class ChartJsLinesBars extends React.Component {
 
                 <Row>
                     <Col lg="10">
-                        <Card className="main-card mb-3">
+                        <Card className="main-card ml-2 mr-2">
                             <CardBody>
                                  <CardTitle>   {filterTec=="Todos" ? ('Total de usuarios(as) en el mundo') : ("Total usuarios(as) "+ filter + " : "+filterTec)}</CardTitle>
-                                <div>
-                                    <MapUser  selectValuesTec={this.state.selectValuesTec} selectValuesType={this.state.selectValuesType} />
-                                </div>
+
+                                 <MapUser  selectValuesTec={this.state.selectValuesTec} selectValuesType={this.state.selectValuesType} />
+
                             </CardBody>
                         </Card>
 

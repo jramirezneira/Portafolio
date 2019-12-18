@@ -80,10 +80,10 @@ export default class MapUser extends Component
       <VectorMap
           map={"world_mill"}
           backgroundColor="transparent" // change it to ocean blue: #0077be
-          zoomOnScroll={false}
+          zoomOnScroll={true}
           containerStyle={{
-            width: "200px",
-            height: "540px"
+            width: "70%",
+            height: "560px"
           }}
           onRegionClick={this.handleClick} // gets the country code
           containerClassName="map"
