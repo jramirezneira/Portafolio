@@ -124,71 +124,75 @@ export default class ChartJsCircular extends React.Component {
                                 <Row>
                                 <Col lg="4">
                                     <p className="text-primary">Ámbito de la tecnología</p>
-                                    <Select
-                                            placeholder="Select peoples"
-                                          addPlaceholder={this.state.addPlaceholder}
-                                          color={this.state.color}
-                                          disabled={this.state.disabled}
-                                          loading={this.state.loading}
-                                          searchBy={this.state.searchBy}
-                                          separator={this.state.separator}
-                                          clearable={this.state.clearable}
-                                          searchable={this.state.searchable}
-                                          create={this.state.create}
-                                          keepOpen={this.state.forceOpen}
-                                          dropdownHandle={this.state.handle}
-                                          dropdownHeight={this.state.dropdownHeight}
-                                          direction={this.state.direction}
-                                          multi={this.state.multi}
-                                          values={[listTypeTechnologies.find(opt => opt.type === "language")]}
-                                          labelField={"Description"}
-                                          valueField={"type"}
-                                          options={listTypeTechnologies}
-                                          dropdownGap={5}
-                                          keepSelectedInList={this.state.keepSelectedInList}
-                                          onDropdownOpen={() => undefined}
-                                          onDropdownClose={() => undefined}
-                                          onClearAll={() => undefined}
+                                     <div className="App">
+                                        <Select
+                                              placeholder="Select peoples"
+                                              addPlaceholder={this.state.addPlaceholder}
+                                              color={this.state.color}
+                                              disabled={this.state.disabled}
+                                              loading={this.state.loading}
+                                              searchBy={this.state.searchBy}
+                                              separator={this.state.separator}
+                                              clearable={this.state.clearable}
+                                              searchable={this.state.searchable}
+                                              create={this.state.create}
+                                              keepOpen={this.state.forceOpen}
+                                              dropdownHandle={this.state.handle}
+                                              dropdownHeight={this.state.dropdownHeight}
+                                              direction={this.state.direction}
+                                              multi={this.state.multi}
+                                              values={[listTypeTechnologies.find(opt => opt.type === "language")]}
+                                              labelField={"Description"}
+                                              valueField={"type"}
+                                              options={listTypeTechnologies}
+                                              dropdownGap={5}
+                                              keepSelectedInList={this.state.keepSelectedInList}
+                                              onDropdownOpen={() => undefined}
+                                              onDropdownClose={() => undefined}
+                                              onClearAll={() => undefined}
 
-                                          onChange={values => this.setValuesType(values)}
+                                              onChange={values => this.setValuesType(values)}
 
 
-                                            />
+                                                />
+                                      </div>
                                       <br></br>
                                 </Col>
                                 <Col lg="4">
                                 <p className="text-primary">Tecnología</p>
-                                <Select
-                                    placeholder="Select peoples"
-                                  addPlaceholder={this.state.addPlaceholder}
-                                  color={this.state.color}
-                                  disabled={this.state.disabled}
-                                  loading={this.state.loading}
-                                  searchBy={this.state.searchBy}
-                                  separator={this.state.separator}
-                                  clearable={this.state.clearable}
-                                  searchable={this.state.searchable}
-                                  create={this.state.create}
-                                  keepOpen={this.state.forceOpen}
-                                  dropdownHandle={this.state.handle}
-                                  dropdownHeight={this.state.dropdownHeight}
-                                  direction={this.state.direction}
-                                  multi={this.state.multi}
-                                  values={[listTypeTechnologiesByType.find(opt => opt.tec === data[0].tec)]}
-                                  labelField={this.state.labelField}
-                                  valueField={this.state.valueField}
-                                  options={data}
-                                  labelField={ "tec"}
-                                  valueField={ "tec"}
-                                  dropdownGap={5}
-                                  keepSelectedInList={this.state.keepSelectedInList}
-                                  onDropdownOpen={() => undefined}
-                                  onDropdownClose={() => undefined}
-                                  onClearAll={() => undefined}
+                                <div className="App">
+                                    <Select
+                                        placeholder="Select peoples"
+                                      addPlaceholder={this.state.addPlaceholder}
+                                      color={this.state.color}
+                                      disabled={this.state.disabled}
+                                      loading={this.state.loading}
+                                      searchBy={this.state.searchBy}
+                                      separator={this.state.separator}
+                                      clearable={this.state.clearable}
+                                      searchable={this.state.searchable}
+                                      create={this.state.create}
+                                      keepOpen={this.state.forceOpen}
+                                      dropdownHandle={this.state.handle}
+                                      dropdownHeight={this.state.dropdownHeight}
+                                      direction={this.state.direction}
+                                      multi={this.state.multi}
+                                      values={[listTypeTechnologiesByType.find(opt => opt.tec === data[0].tec)]}
+                                      labelField={this.state.labelField}
+                                      valueField={this.state.valueField}
+                                      options={data}
+                                      labelField={ "tec"}
+                                      valueField={ "tec"}
+                                      dropdownGap={5}
+                                      keepSelectedInList={this.state.keepSelectedInList}
+                                      onDropdownOpen={() => undefined}
+                                      onDropdownClose={() => undefined}
+                                      onClearAll={() => undefined}
 
-                                  onChange={values => this.setValuesTec(values)}
+                                      onChange={values => this.setValuesTec(values)}
 
-                                    />
+                                        />
+                                  </div>
                                   <br></br>
                                 </Col>
                                 <Col lg="4">

@@ -11,7 +11,7 @@ import {
 } from 'reactstrap';
 
 const listNewspaper= [{"label":"El diario", "value":"El diario"},{"label":"Público", "value":"Público"},{"label":"Abc", "value":"Abc"},{"label":"La razón", "value":"La razón"}];
-let todos= [{"label":"Todos", "value":"Todos"}];
+let todos= [{ "value":"Todos", "label":"Todos"}];
 
 export default class ChartJsCircular extends React.Component {
 
@@ -34,6 +34,9 @@ export default class ChartJsCircular extends React.Component {
 
       onFirstSelect = e => {
         const value = e.target.value;
+
+
+
         let jsonNodeTo=[];
         jsonNodeTo = todos.concat(require("./../data/Nodesto_"+ value +".json"));
         this.setState(
@@ -54,6 +57,8 @@ export default class ChartJsCircular extends React.Component {
       };
       onSecondSelect = e => {
         const value2 = e.target.value;
+
+        console.log(value2);
         this.setState(
           {
             value2,
@@ -79,12 +84,21 @@ export default class ChartJsCircular extends React.Component {
                             <CardBody>
                                 <Row>
                                     <Col lg="5">
-                                        <p className="text-primary">Ámbito de la tecnología</p>
+                                        <div className="App">
+                                        <p>Selecciona diario y entidad</p>
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col lg="5">
+
                                        { !this.state.loading && (
+
                                             <div className="App">
                                               <select onChange={this.onFirstSelect} defaultValue={this.state.value}>
                                                 {listNewspaper.map(d => <option value={d.value}>{d.label}</option>)}
                                               </select>
+
                                               <select onChange={this.onSecondSelect}>
                                                 {this.state.jsonNodeTo.map(d => <option value={d.value}>{d.label}</option>)}
                                               </select>
