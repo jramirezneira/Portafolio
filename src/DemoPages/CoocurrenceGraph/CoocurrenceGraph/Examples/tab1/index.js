@@ -1,75 +1,68 @@
 import React, {Fragment} from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import CoocurrenceGraphExample from '../CoocurrenceGraphExample';
-import { listNewspaper } from "./../data/listNewspaper";
 import {Button, Dropdown, UncontrolledButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
 import Select from "react-dropdown-select";
+import Select1 from 'react-select'
 import {
     Row, Col,
     Card, CardBody,
     CardTitle
 } from 'reactstrap';
 
+const listNewspaper= [{"label":"El diario", "value":"El diario"},{"label":"Público", "value":"Público"},{"label":"Abc", "value":"Abc"},{"label":"La razón", "value":"La razón"}];
+let todos= [{"label":"Todos", "value":"Todos"}];
+
 export default class ChartJsCircular extends React.Component {
+
+
 
         constructor(props) {
         super(props);
-                        this.state = {
-            dropdownOpen: false,
-            multi: false,
-            disabled: false,
-              loading: false,
-              contentRenderer: true,
-              dropdownRenderer: true,
-              inputRenderer: true,
-              itemRenderer: true,
-              optionRenderer: true,
-              noDataRenderer: false,
-              selectValuesType: listNewspaper,
-              selectValuesTo: [],
-              searchBy: "username",
-              clearable: false,
-              searchable: true,
-              create: false,
-              separator: false,
-              forceOpen: false,
-              handle: true,
-              addPlaceholder: "",
-
-              color: "#0074D9",
-              keepSelectedInList: true,
-              closeOnSelect: true,
-              dropdownPosition: "bottom",
-              direction: "ltr",
-              dropdownHeight: "300px",
 
 
+        let jsonNodeTo=[];
+        jsonNodeTo = todos.concat(require("./../data/Nodesto_"+ listNewspaper[0].label +".json"));
+        this.state = {
+          value: listNewspaper[0].label,
+          value2: jsonNodeTo[0].label,
+          loading: false,
+          jsonNodeTo:todos.concat(require("./../data/Nodesto_"+ listNewspaper[0].label +".json"))
         };
-
-
-
-
     }
-    setValuesType = selectValuesType => this.setState({ selectValuesType });
-    setValuesTo = selectValuesTo => this.setState({ selectValuesTo });
 
 
+      onFirstSelect = e => {
+        const value = e.target.value;
+        let jsonNodeTo=[];
+        jsonNodeTo = todos.concat(require("./../data/Nodesto_"+ value +".json"));
+        this.setState(
+          {
+            loading: true,
+            value: value,
+          },
+          //call the api and
+          () => {
+            this.setState({
+              loading: false,
+              jsonNodeTo,
+              value2: jsonNodeTo[0].label
 
+            });
+          }
+        );
+      };
+      onSecondSelect = e => {
+        const value2 = e.target.value;
+        this.setState(
+          {
+            value2,
+          }
+        );
+      };
 
 
     render() {
-
-
-    //console.log(this.state.selectValuesType);
-
-    let jsonNodeTo=[];
-
-    if (this.state.selectValuesType != undefined)
-        jsonNodeTo = require("./../data/Nodesto_"+ this.state.selectValuesType[0].Description +".json");//.filter(l => l.Description== this.state.selectValuesType[0].Description);
-    else
-        jsonNodeTo=require("./../data/Nodesto_"+ listNewspaper[0].Description +".json");
-
-
 
         return (
             <Fragment>
@@ -86,72 +79,18 @@ export default class ChartJsCircular extends React.Component {
                             <CardBody>
                                 <Row>
                                     <Col lg="5">
-                                        <p className="text-primary">Diario</p>
+                                        <p className="text-primary">Ámbito de la tecnología</p>
+                                       { !this.state.loading && (
+                                            <div className="App">
+                                              <select onChange={this.onFirstSelect} defaultValue={this.state.value}>
+                                                {listNewspaper.map(d => <option value={d.value}>{d.label}</option>)}
+                                              </select>
+                                              <select onChange={this.onSecondSelect}>
+                                                {this.state.jsonNodeTo.map(d => <option value={d.value}>{d.label}</option>)}
+                                              </select>
+                                            </div>
+                                          )}
 
-                                        <Select
-                                                placeholder="Select peoples"
-                                              addPlaceholder={this.state.addPlaceholder}
-                                              color={this.state.color}
-                                              disabled={this.state.disabled}
-                                              loading={this.state.loading}
-                                              searchBy={this.state.searchBy}
-                                              separator={this.state.separator}
-                                              clearable={this.state.clearable}
-                                              searchable={this.state.searchable}
-                                              create={this.state.create}
-                                              keepOpen={this.state.forceOpen}
-                                              dropdownHandle={this.state.handle}
-                                              dropdownHeight={this.state.dropdownHeight}
-                                              direction={this.state.direction}
-                                              multi={this.state.multi}
-                                              values={[listNewspaper.find(opt => opt.Description === listNewspaper[0].Description)]}
-                                              labelField={"Description"}
-                                              valueField={"Description"}
-                                              options={listNewspaper}
-                                              dropdownGap={5}
-                                              keepSelectedInList={this.state.keepSelectedInList}
-                                              onDropdownOpen={() => undefined}
-                                              onDropdownClose={() => undefined}
-                                              onClearAll={() => undefined}
-
-                                              onChange={values => this.setValuesType(values)}
-
-                                                />
-                                                 <br></br>
-
-                                        </Col>
-                                        <Col><p className="text-primary">Entidad</p>
-                                        <Select
-                                                id="id1"
-                                                placeholder="Select peoples"
-                                              addPlaceholder={this.state.addPlaceholder}
-                                              color={this.state.color}
-                                              disabled={this.state.disabled}
-                                              loading={this.state.loading}
-                                              searchBy={this.state.searchBy}
-                                              separator={this.state.separator}
-                                              clearable={this.state.clearable}
-                                              searchable={this.state.searchable}
-                                              create={this.state.create}
-                                              keepOpen={this.state.forceOpen}
-                                              dropdownHandle={this.state.handle}
-                                              dropdownHeight={this.state.dropdownHeight}
-                                              direction={this.state.direction}
-                                              multi={this.state.multi}
-                                              values={[jsonNodeTo.find(opt => opt.to === jsonNodeTo[0].to)]}
-                                             //  values={{ label: "PP", value: "PP" }}
-                                              labelField={"to"}
-                                              valueField={"to"}
-                                              options={jsonNodeTo}
-                                              dropdownGap={0}
-                                              keepSelectedInList={this.state.keepSelectedInList}
-                                              onDropdownOpen={() => undefined}
-                                              onDropdownClose={() => undefined}
-                                              onClearAll={() => undefined}
-
-                                              onChange={values => this.setValuesTo(values)}
-
-                                                />
                                         </Col>
 
                                 </Row>
@@ -165,13 +104,11 @@ export default class ChartJsCircular extends React.Component {
 
                             <Card className="main-card mb-1">
                                 <CardBody >
-                                    <Row>
-                                        <Col lg="5">
-                                            <CardTitle className="text-primary">{this.state.selectValuesType[0].Description}</CardTitle>
-                                            <CoocurrenceGraphExample selectValuesTo={this.state.selectValuesTo} selectValuesType={this.state.selectValuesType}  />
 
-                                        </Col>
-                                    </Row>
+                                    <CardTitle className="text-primary">{this.state.value} {this.state.value2}</CardTitle>
+                                    <CoocurrenceGraphExample selectValuesTo={this.state.value2} selectValuesType={this.state.value}  />
+
+
                                 </CardBody>
                              </Card>
                         </Col>

@@ -5,98 +5,94 @@ import { Resizable } from 're-resizable';
 import Graph from 'vis-react';
 //import MediaQuery from 'react-responsive'
 import "./css/styles.css";
-
 import {
-    Card, CardBody,
-    CardTitle
+    Row, Col
 } from 'reactstrap';
 
 
-const resizeStyle = {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  border: 'solid 1px #ddd',
-  background: '#f0f0f0',
-};
 
-var highlightActive = false;
-let options = {
+
+let options =
+{
     autoResize: true,
-    width:"600",
-    height:"600",
-    //configure:{showButton:true},
-  layout: {
-    randomSeed: 9,
 
-  },
+        //configure:{showButton:true},
+      layout: {
+        randomSeed: 2,
+        hierarchical: false
 
-  nodes: {
+      },
 
-    fixed: {
-      x: false,
-      y: false
-    },
-    shape: "dot",
-    size: 1,
+      nodes: {
 
-    borderWidth: 1.5,
-    borderWidthSelected: 2,
 
-    font: {
-      size: 15,
-      align: "center",
+        shape: "dot",
+        size: 1,
 
-    },
-    shadow:{
-      enabled: true,
-      color: 'rgba(0,0,0,0.2)',
-      size:4,
-      x:5,
-      y:5
-    },
-  },
-  edges: {
-    width: 0.5,
-    color: {
-      color: "#D3D3D3",
-      highlight: "#DD4F43",
-      hover: "#DD4F43",
-      opacity: 0.8
-    },
-    arrows: {
-      to: { enabled: false, scaleFactor: 0.5, type: "arrow" },
-      middle: { enabled: false, scaleFactor: 1, type: "arrow" },
-      from: { enabled: false, scaleFactor: 0.1, type: "arrow" }
-    },
-    smooth: {
-      type: "continuous",
-      roundness: 0
-    }
-  },
-   physics: {
-    barnesHut: {
-      gravitationalConstant: -40000,
-      centralGravity: 5,
-      springLength: 150,
-      avoidOverlap: 0
-    },
-    stabilization: { iterations: 10000 }
-  },
-  interaction: {
-    hover: true,
-    hoverConnectedEdges: true,
-    selectable: false,
-    selectConnectedEdges: false,
-    zoomView: false,
-    dragView: false
-  }
-};
+        borderWidth: 1.5,
+        borderWidthSelected: 2,
+
+        shadow:{
+          enabled: true,
+          color: 'rgba(0,0,0,0.2)',
+          size:4,
+          x:5,
+          y:5
+        },
+      },
+      edges: {
+        width: 0.5,
+        color: {
+          color: "#D3D3D3",
+          highlight: "#DD4F43",
+          hover: "#DD4F43",
+          opacity: 0.8
+        },
+
+        arrows: {
+          to: { enabled: false, scaleFactor: 0.5, type: "arrow" },
+          middle: { enabled: false, scaleFactor: 1, type: "arrow" },
+          from: { enabled: false, scaleFactor: 0.1, type: "arrow" }
+        },
+        smooth: {
+          type: "continuous",
+          roundness: 0
+        }
+      },
+       physics: {
+        barnesHut: {
+          gravitationalConstant: -40000,
+          centralGravity: 5,
+          springLength: 150,
+          avoidOverlap: 0
+        },
+        stabilization: { iterations: 10000 }
+      },
+      interaction: {
+        hover: true,
+        hoverConnectedEdges: true,
+        selectable: false,
+        selectConnectedEdges: false,
+        zoomView: true,
+        dragView: true,
+
+
+      }
+    };
+
+
+
+
+var highlightActive = true;
 
 
 
 export default class CoocurrenceGraphExample extends React.Component<{}, {width: number, height: number}> {
 
+
+    simulateClick(e) {
+            e.click();
+          };
 
    setState(stateObj) {
     if (this.mounted) {
@@ -127,31 +123,32 @@ export default class CoocurrenceGraphExample extends React.Component<{}, {width:
         this.neighbourhoodHighlightHide(event);
       },
       click: function(event) {
-           this.neighbourhoodHighlight(event, this.props.searchData);
+        //   this.neighbourhoodHighlight(event, this.props.searchData);
      //   this.redirectToLearn(event, this.props.searchData);
       }
     };
 
 
-    let iniNodes =require('./data/nodes_'+this.props.selectValuesType[0].Description+'.json');
+
+    let iniNodes =require('./data/nodes_'+this.props.selectValuesType+'.json');
 
 
 
     let newGraph = {
 	nodes: Object.values(iniNodes),
-	edges: require('./data/links_'+this.props.selectValuesType[0].Description+'.json'),
+	edges: require('./data/links_'+this.props.selectValuesType+'.json'),
 
 	};
-    this.state = {
-        stylediv: ""
-    }
-
-
 
     this.state = {
       graph: newGraph,
-      style: { width: "80%", height: "100%" },
-      network: null
+      iniNodes:{},
+      options:options,
+      network: null,
+      iniNodes:newGraph.nodes,
+      showFirstTag:null,
+      showFirstTagOcurrs:null,
+      arrEdges:[]
     };
    this.measure = this.measure.bind(this);
     this.events.hoverNode = this.events.hoverNode.bind(this);
@@ -162,36 +159,28 @@ export default class CoocurrenceGraphExample extends React.Component<{}, {width:
     this.neighbourhoodHighlightHide = this.neighbourhoodHighlightHide.bind(  this   );
 
 
+   // this.iniciaConsulta();
+
   }
 
-
-componentDidUpdate(prevProps)
+iniciaConsulta()
 {
-   // console.log(this.props.selectValuesTo[0]);
-    if(this.props.selectValuesType !== prevProps.selectValuesType ||
-        this.props.selectValuesTo !== prevProps.selectValuesTo
-    ){
 
-       let filter=this.props.selectValuesType[0].Description;
+    let filter=this.props.selectValuesType;
 
 
 
         let iniNodes = {};
-
-        //if (filter=="Abc")
-          //  iniNodes=require("./data/nodes_Abc.json");
-        //else
         iniNodes=require("./data/nodes_"+filter+".json");
 
         iniNodes=Object.values(iniNodes);
 
         let iniLinks =require('./data/links_'+filter+'.json');
 
-       // console.log(this.props);
-        let filterto="Todos";
-        this.props.selectValuesTo.forEach(element => {
+        let filterto=this.props.selectValuesTo;//"Todos";
+        /*this.props.selectValuesTo.forEach(element => {
             filterto= element.to;
-        });
+        });*/
 
 
         if(filterto=="Todos")
@@ -219,12 +208,15 @@ componentDidUpdate(prevProps)
         edges: iniLinks,
 
         };
+
+
+
         this.setState({
-            graph: newGraph
+            graph: newGraph,
+            iniNodes:iniNodesArray
         });
 
-        //this.state.graph=newGraph;
-        this.measure = this.measure.bind(this);
+
         this.events.hoverNode = this.events.hoverNode.bind(this);
         this.events.blurNode = this.events.blurNode.bind(this);
         this.events.click = this.events.click.bind(this);
@@ -232,24 +224,41 @@ componentDidUpdate(prevProps)
         //this.redirectToLearn = this.redirectToLearn.bind(this);
         this.neighbourhoodHighlightHide = this.neighbourhoodHighlightHide.bind(  this   );
 
-        this.getNetwork = data => {
-        this.setState({ network: data });
-        };
+        if (this.state.network !== undefined )
+            if (filterto=="Todos")
+                this.state.network.moveTo({scale:0.6, position:{x:1,y:1}});
+            else
+                this.state.network.moveTo({scale:1, position:{x:1,y:1}});
+
+
+
+}
+
+componentDidUpdate(prevProps)
+{
+    console.log(prevProps);
+    if(this.props.selectValuesType !== prevProps.selectValuesType ||
+        this.props.selectValuesTo !== prevProps.selectValuesTo
+    ){
+
+        this.iniciaConsulta();
+
+
 
 
       }
+
 }
 
  componentDidMount() {
     this.mounted = true;
-    window.addEventListener("resize", this.measure);
+
   }
 
   componentWillUnmount() {
     this.mounted = false;
-    //window.removeEventListener("resize", this.measure);
 
-    window.addEventListener("resize", this.measure);
+   // window.addEventListener("resize", this.measure);
 
   }
 
@@ -262,7 +271,10 @@ componentDidUpdate(prevProps)
     let Nodes = new this.vis.DataSet(allNodes);
     let cloneNodes = Nodes.get({ returnType: "Object" });
 
-    this.state.network.canvas.body.container.style.cursor = "pointer";
+
+
+   // this.state.network.canvas.body.container.style.cursor = "pointer";
+
 
     if (params.node !== undefined) {
       highlightActive = true;
@@ -273,82 +285,66 @@ componentDidUpdate(prevProps)
 
       for (var nodeId in cloneNodes) {
 
-      //  console.log(cloneNodes[nodeId]);
-        cloneNodes[nodeId].color = "rgba(211, 211, 211,0.5)";
        if (cloneNodes[nodeId].hiddenLabel === undefined) {
+
+
 
           cloneNodes[nodeId].hiddenColor = cloneNodes[nodeId].color;
           cloneNodes[nodeId].hiddenLabel = cloneNodes[nodeId].label;
           cloneNodes[nodeId].label = undefined;
+          cloneNodes[nodeId].color = "rgba(211, 211, 211,0.5)";
         }
       }
 
       let connectedNodes = this.state.network.getConnectedNodes(selectedNode);
-      //  console.log(connectedNodes);
-      let allConnectedNodes = [];
-      // get the second degree nodes
-      for (i = 1; i < degrees; i++) {
-        for (j = 0; j < connectedNodes.length; j++) {
-          allConnectedNodes = allConnectedNodes.concat(
-            this.state.network.getConnectedNodes(connectedNodes[j])
-          );
 
-        }
-      }
-
-      // all second degree nodes get a different color and their label back
-     for (i = 0; i < allConnectedNodes.length; i++) {
-
-
-
-        //cloneNodes[allConnectedNodes[i]].borderWidth = 1.5;
-        if (cloneNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
-        cloneNodes[allConnectedNodes[i]].color = undefined;
-          cloneNodes[allConnectedNodes[i]].label =
-            cloneNodes[allConnectedNodes[i]].hiddenLabel;
-          cloneNodes[allConnectedNodes[i]].hiddenLabel = undefined;
-        }
-      }
-
-      // all first degree nodes get their own color and their label back
-
-     // console.log(connectedNodes);
       for (let i = 0; i < connectedNodes.length; i++) {
 
-        cloneNodes[connectedNodes[i]].color = undefined;
-
-        //cloneNodes[connectedNodes[i]].color = undefined;
         if (cloneNodes[connectedNodes[i]]["hiddenLabel"] !== undefined) {
-          cloneNodes[connectedNodes[i]].label =
-            cloneNodes[connectedNodes[i]]["hiddenLabel"];
-          const fontSize = this.state.network.body.nodes;
-          fontSize[connectedNodes[i]].options.font.size = 15;
+
+          //let locNode =this.state.iniNodes.filter(n => n.label === connectedNodes[i]);
+          cloneNodes[connectedNodes[i]].label =  cloneNodes[connectedNodes[i]]["hiddenLabel"];
+          cloneNodes[connectedNodes[i]].color = cloneNodes[connectedNodes[i]]["hiddenColor"];
           cloneNodes[connectedNodes[i]]["hiddenLabel"] = undefined;
+
+
         }
       }
 
       // the main node gets its own color and its label back.
-      cloneNodes[selectedNode].color = "#2B7CE9";
+      //let locNode =this.state.iniNodes.filter(n => n.label === selectedNode);
       if (cloneNodes[selectedNode]["hiddenLabel"] !== undefined) {
-        cloneNodes[selectedNode].label =
-          cloneNodes[selectedNode]["hiddenLabel"];
-        const fontSize = this.state.network.body.nodes;
-        fontSize[selectedNode].options.font.size = 15;
-        // this.setState({fontSize})
+        cloneNodes[selectedNode].label = cloneNodes[selectedNode]["hiddenLabel"];
+        cloneNodes[selectedNode].color = "red";//cloneNodes[selectedNode]["hiddenColor"];
+        this.setState({showFirstTag:"Etiqueta: "+cloneNodes[selectedNode]["hiddenLabel"]});
+        this.setState({showFirstTagOcurrs: "Cantidad ocurrencias: "+cloneNodes[selectedNode].occurs});
         cloneNodes[selectedNode]["hiddenLabel"] = undefined;
-
       }
+      //  allNodess[nodeIds].borderWidth= 1.5;
+
+       let arrEdges= [];
+      connectedNodes.forEach(cN => {
+        this.state.graph.edges.forEach(iL => {
+
+            if(cN===iL.from && cloneNodes[selectedNode].label===iL.to)
+                arrEdges.push({"to":iL.to, "from":iL.from, "occurs":iL.occurs})
+
+            if(cN===iL.to && cloneNodes[selectedNode].label===iL.from)
+                arrEdges.push({"to":iL.from, "from":iL.to, "occurs":iL.occurs})
+                //console.log(iL);
+        });
+      });
+      this.setState({arrEdges});
+
+
     } else if (highlightActive === true) {
       // reset all nodes
+
       for (let nodeId in cloneNodes) {
 
-        cloneNodes[nodeId].color = undefined;
-         //console.log(cloneNodes[nodeId]);
         if (cloneNodes[nodeId]["hiddenLabel"] !== undefined) {
           cloneNodes[nodeId].label = cloneNodes[nodeId]["hiddenLabel"];
-          const fontSize = this.state.network.body.nodes;
-          fontSize[nodeId].options.font.size = 15;
-          this.setState({ fontSize });
+          cloneNodes[nodeId].color = cloneNodes[nodeId]["hiddenColor"];
           cloneNodes[nodeId]["hiddenLabel"] = undefined;
         }
       }
@@ -368,20 +364,24 @@ componentDidUpdate(prevProps)
           edges: this.state.graph.edges
         }
       });
+        //console.log(this.state.graph.nodes);
     }
+
 }
 
 
   neighbourhoodHighlightHide(params) {
     let allNodes = this.state.graph.nodes;
-
-
-
     let Nodes = new this.vis.DataSet(allNodes);
     let allNodess = Nodes.get({ returnType: "Object" });
+
+    this.setState({showFirstTag:null});
+    this.setState({showFirstTagOcurrs:null});
+    this.setState({arrEdges:[]});
+
     // let allNodess = allNodes.map(a => {return {...a}})
     this.state.network.canvas.body.container.style.cursor = "default";
-
+    console.log(allNodess);
 
     highlightActive = true;
     if (highlightActive === true) {
@@ -389,22 +389,23 @@ componentDidUpdate(prevProps)
       for (var nodeIds in allNodess) {
 
 
-        allNodess[nodeIds].borderWidth= 1.5;
-        allNodess[nodeIds].color = {"border":"rgba(43, 124, 233)", "background": '#97C2FC'};
+        //allNodess[nodeIds].borderWidth= 1.5;
+        //allNodess[nodeIds].color =  {"border":"rgba(43, 124, 233)", "background": '#97C2FC'};
+        let locNode =this.state.iniNodes.filter(n => n.label === nodeIds);
+          allNodess[nodeIds].color = locNode[0].color;//allNodess[nodeIds].hiddenColor;
 
 
         if (allNodess[nodeIds].hiddenLabel !== undefined) {
           allNodess[nodeIds].label = allNodess[nodeIds].hiddenLabel;
-       //   console.log(this.state.network.body.nodes);
-          const fontSize = this.state.network.body.nodes;
-          fontSize[nodeIds].options.font.size = 15;
-          this.setState({ fontSize });
-          allNodess[nodeIds].hiddenLabel = undefined;
+
+
+                    allNodess[nodeIds].hiddenLabel = undefined;
+          allNodess[nodeIds].hiddenColor = undefined;
         }
       }
       highlightActive = false;
     }
-    //console.log(allNodess);
+
     var updateArray = [];
     for (var nodeIde in allNodess) {
       if (allNodess.hasOwnProperty(nodeIde)) {
@@ -420,77 +421,52 @@ componentDidUpdate(prevProps)
         }
       });
     }
+    //this.iniciaConsulta();
+
   }
 
   getNetwork = data => {
     this.setState({ network: data });
+
+
   };
 
 
-  getBackgroundChapterImage = () => {
-    const chapterLabel = "./images/eldiario.jpg";
-
-  };
-   state = {width: 200, height: 200};
-
-  onClick = () => {
-    this.setState({width: 200, height: 200});
-  };
-
-  onResize = (event, {element, size, handle}) => {
-    this.setState({width: size.width, height: size.height});
-  };
 
 
   render() {
 
-    let width=window.innerWidth*0.8;
-    let height=window.innerHeight * 1.1;
+
+            return (
+                    <div>
+                    <Row>
+                        <Col lg="8">
+                            <Graph id="graph1"
+                              graph={this.state.graph}
+                              style={{ height: "640px",  background: '#FFFDF5' }}
+                              options={options}
+                              getNetwork={this.getNetwork}
+                              getEdges={this.getEdges}
+                              getNodes={this.getNodes}
+                              events={this.events}
+                              vis={vis => (this.vis = vis)}
+                            />
+                        </Col>
+                        <Col lg="4">
+                            <p className="text-primary"><strong>{this.state.showFirstTag}</strong> </p>
+                            <p className="text-primary"><strong>{this.state.showFirstTagOcurrs}</strong></p>
+                            <BootstrapTable  wrapperClasses="table-responsive" data={this.state.arrEdges}    striped={true} hover={true} condensed= {true} search={false} >
+                                <TableHeaderColumn dataField="to" isKey={true}  dataSort={ true } width={'100px'}  thStyle={ { whiteSpace: 'normal' } }  tdStyle={ { whiteSpace: 'normal' } } >Etiqueta</TableHeaderColumn>
+                                <TableHeaderColumn dataField="from"  dataSort={ true } width={'100px'}  thStyle={ { whiteSpace: 'normal' } }  tdStyle={ { whiteSpace: 'normal' } } >Etiqueta relacionada</TableHeaderColumn>
+                                <TableHeaderColumn dataField="occurs" dataSort={ true } width={'100px'}  thStyle={ { whiteSpace: 'normal' } }  tdStyle={ { whiteSpace: 'normal' } } >Cantidad de ocurrencias</TableHeaderColumn>
+                            </BootstrapTable>
+                        </Col>
+                    </Row>
+                </div>
+            );
 
 
-    if (width <=800)
-        options.width=width +"px";
-    else
-        options.width="800px";
 
-    if (height <=800)
-        options.height=height +"px";
-    else
-        options.height="800px";
-
-
-return (
-
-            <Graph
-              graph={this.state.graph}
-              style={ this.state.style}
-              options={options}
-              getNetwork={this.getNetwork}
-              getEdges={this.getEdges}
-              getNodes={this.getNodes}
-              events={this.events}
-              vis={vis => (this.vis = vis)}
-            />
-
-    );
-
-   /* let style= "";
-    let currentHideNav = (window.innerWidth <= 760);
-    if (currentHideNav !== this.state.hideNav) {
-        if(currentHideNav)
-        {
-            options.width="50%";
-            options.height="50%";
-        }
-        else
-        {
-            options.width="100%";
-            options.height="100%";
-        }
-
-    }
-    console.log(options.width);*/
-    //console.log(this);
   }
 }
 

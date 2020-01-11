@@ -9,6 +9,7 @@ import {
 const Charts = lazy(() => import('../../DemoPages/Charts'));
 const WordCloud = lazy(() => import('../../DemoPages/WordCloud'));
 const CoocurrenceGraph = lazy(() => import('../../DemoPages/CoocurrenceGraph'));
+const CoocurrenceGraphSO = lazy(() => import('../../DemoPages/CoocurrenceGraphSO'));
 const WorldUser = lazy(() => import('../../DemoPages/WorldUser'));
 const Projects = lazy(() => import('../../DemoPages/Projects'));
 
@@ -50,7 +51,17 @@ const AppMain = () => {
                 <Route path="/CoocurrenceGraph" component={CoocurrenceGraph}/>
             </Suspense>
 
-
+             <Suspense fallback={
+                <div className="loader-container">
+                    <div className="loader-container-inner">
+                        <h6 className="mt-3">
+                            Cargando dashboard...
+                         </h6>
+                    </div>
+                </div>
+            }>
+                <Route path="/CoocurrenceGraphSO" component={CoocurrenceGraphSO}/>
+            </Suspense>
 
 
              <Suspense fallback={

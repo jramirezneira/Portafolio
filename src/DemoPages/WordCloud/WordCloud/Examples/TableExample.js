@@ -15,11 +15,11 @@ export default class TableExample extends Component
 
  constructor(props) {
       super(props);
-      this.state = {
+    /*  this.state = {
         words: require('./data/words.json')
 
 
-      }
+      }*/
     }
 
 

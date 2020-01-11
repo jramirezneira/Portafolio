@@ -38,7 +38,7 @@ export default class BarLineTec extends Component
     let currentHideNav = (window.innerWidth <= 760);
     if (currentHideNav !== this.state.hideNav) {
         if(currentHideNav)
-            height= 300;
+            height= 400;
         else
             height=  100;
     }

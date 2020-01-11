@@ -133,6 +133,12 @@ export const ChartsNav = [
         label: 'Wordcloud con Spacy',
         to: '#/wordcloud/wordcloud',
     }
+    ,
+    {
+        icon: 'pe-7s-share',
+        label: 'Entidades con SpaCy',
+        to: '#/CoocurrenceGraphSO/CoocurrenceGraphSO',
+    }
 ];
 
 

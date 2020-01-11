@@ -1,0 +1,28 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.vis-react {
+  width: 100rem;
+  height: 100rem;
+  display: 'flex';
+  alignItems: 'center';
+  justifyContent: '0';
+  border: 'solid 1px #ddd';
+  background: '#f0f0f0';
+
+}
+
+.vis-reactMobile {
+  width: 25rem;
+  height: 25rem;
+  display: 'flex';
+  alignItems: 'center';
+  justifyContent: 'center';
+  border: 'solid 1px #ddd';
+  background: '#f0f0f0';
+
+}
+.vis-react-title {
+  text-align: center;
+}
