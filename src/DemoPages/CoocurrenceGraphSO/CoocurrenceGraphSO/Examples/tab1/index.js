@@ -3,7 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import CoocurrenceGraphSOExample from '../CoocurrenceGraphSOExample';
 //import { listNewspaper } from "./../data/listNewspaper";
 import {Button, Dropdown, UncontrolledButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
-import Select from "react-dropdown-select";
+//import Select from "react-dropdown-select";
 import {
     Row, Col,
     Card, CardBody,

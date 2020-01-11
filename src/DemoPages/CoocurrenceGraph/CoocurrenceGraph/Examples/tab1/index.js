@@ -2,8 +2,8 @@ import React, {Fragment} from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import CoocurrenceGraphExample from '../CoocurrenceGraphExample';
 import {Button, Dropdown, UncontrolledButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap';
-import Select from "react-dropdown-select";
-import Select1 from 'react-select'
+//import Select from "react-dropdown-select";
+//import Select1 from 'react-select'
 import {
     Row, Col,
     Card, CardBody,
