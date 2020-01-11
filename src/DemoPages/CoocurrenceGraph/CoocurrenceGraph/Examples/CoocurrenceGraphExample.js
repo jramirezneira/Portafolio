@@ -1,6 +1,6 @@
 import React, { Component, Fragment, BackgroundContainer,BackgroundImage, PageContainer } from 'react';
 import ReactDOM from 'react-dom';
-
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 import { Resizable } from 're-resizable';
 import Graph from 'vis-react';
 //import MediaQuery from 'react-responsive'
