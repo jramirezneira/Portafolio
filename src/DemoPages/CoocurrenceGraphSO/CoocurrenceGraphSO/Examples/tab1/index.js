@@ -92,8 +92,15 @@ export default class ChartJsCircular extends React.Component {
                         <Card className="main-card mb-2">
                             <CardBody>
                                 <Row>
-                                    <Col>
-                                        <p className="text-primary">Diario</p>
+                                    <Col lg="5">
+                                        <div className="App">
+                                        <p>Selecciona Tema y tecnología</p>
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col lg="5">
+
 
                                          { !this.state.loading && (
                                             <div className="App">

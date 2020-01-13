@@ -54,10 +54,11 @@ export default class ChartJsCircular extends React.Component {
 
 
 
-                        <Col lg="10">
-                            <CardGroup >
-                              <Card style={{ width: '20rem' }} className="main-card ml-2  mr-2">
-                                <CardImg top width="50%" src={require('./../images/project1.png')} alt="Card image cap" />
+                        <Col lg="8">
+                            <CardTitle>Análisis Stack Overflow</CardTitle>
+                            <CardGroup style={{ width: '48rem' }} >
+                              <Card style={{ width: '15rem' }} className="main-card ml-2  mr-2">
+                                <CardImg top width="40%" src={require('./../images/project1.png')} alt="Card image cap" />
                                 <CardBody>
                                   <CardTitle>Dashboard Stack Overflow</CardTitle>
                                   <CardSubtitle>Las tecnologías más populares entre octubre 2018 y septiembre 2019</CardSubtitle>
@@ -69,7 +70,7 @@ export default class ChartJsCircular extends React.Component {
                               </Card>
 
 
-                              <Card style={{ width: '20rem' }} className="main-card ml-2  mr-2">
+                              <Card style={{ width: '15rem' }} className="main-card ml-2  mr-2">
                                 <CardImg top width="50%" src={require('./../images/project2.png')} alt="Card image cap" />
                                 <CardBody>
                                   <CardTitle>Stack Overflow en el mundo</CardTitle>
@@ -84,7 +85,7 @@ export default class ChartJsCircular extends React.Component {
 
 
 
-                               <Card style={{ width: '20rem' }} className="main-card ml-2  mr-2">
+                               <Card style={{ width: '15rem' }} className="main-card ml-2  mr-2">
                                 <CardImg src={require('./../images/project3.png')} alt="Card image cap" />
                                 <CardBody style={{high:'25rem' }}>
                                   <CardTitle>Wordcloud Stack Overflow</CardTitle>
@@ -97,10 +98,35 @@ export default class ChartJsCircular extends React.Component {
                               </Card>
 
 
+                             <Card style={{ width: '15rem' }} className="main-card ml-2  mr-2">
+                                <CardImg src={require('./../images/project5.png')} alt="Card image cap" />
+                                <CardBody style={{high:'25rem' }}>
+                                  <CardTitle>Etiquetas más recurrentes en Stack Overflow</CardTitle>
+                                  <CardSubtitle >Gráfico de red con las combinaciones de etiquetas más recurrentes.</CardSubtitle>
+                                 {/* <CardText>Ejemplo realizado con reactjs y web scraping.
+                                    Las tecnologías de desarrollo más consultadas y vistas por las(os) usuarias(os) de todos el mundo, de un total de 2 millones 400 mil post, entre octubre de 2018 y septiembre de 2019.
+                                  </CardText> */}
+                                  <Button outline  color="info" onClick={this.handlePageChange3}>ver más</Button>
+                                </CardBody>
+                              </Card>
 
 
 
-                               <Card style={{ width: '20rem', high:'10rem' }} className="main-card ml-2 mr-2">
+
+                            </CardGroup>
+
+                         </Col>
+
+                         <Col lg="4">
+                            <CardTitle>Análisis diarios españoles</CardTitle>
+                            <CardGroup style={{ width: '13rem' }}>
+
+
+
+
+
+
+                               <Card style={{ width: '13rem', high:'10rem' }} className="main-card ml-2 mr-2">
                                 <CardImg src={require('./../images/project4.png')} alt="Card image cap" />
                                 <CardBody>
                                   <CardTitle>Correlación de entidades en noticias políticas de diarios Españoles</CardTitle>

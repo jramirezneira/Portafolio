@@ -35,10 +35,9 @@ export default class ChartJSExamples extends Component {
             <Fragment>
              <div>
                 <PageTitle
-                    heading="Proyectos"
-                   /* subheading="Sitio web desarrollado con reactjs."
-                    subheading1="Procesos de extracción de datos desde sitios web de Stack Overflow y diarios Españoles implementados con webscraping de Python. "
-                    subheading2="Análisis y correlación de entidades desarrollado con librería SpaCy de Python.  " */
+                    heading="Portafolio de proyectos Javier Ramírez"
+                    subheading="Me dedico al desarrollo herramientas web con reactjs para la visualización de business intellegence, machine learning y procesamiento de lenguaje natural."
+                    subheading1="Implemento procesos de recolección de datos, estructurados y no estructurados, desde páginas web con técnicas de webscraping de python."
                     icon="pe-7s-light icon-gradient bg-sunny-morning"
                 />
             </div>

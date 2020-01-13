@@ -22,90 +22,84 @@ export default class ChartJsCircular extends React.Component {
         super(props);
             this.state = {
                 words: require('./../data/words.json'),
-                dropdownOpen: false,
-                multi: false,
-                disabled: false,
-                loading: false,
-                contentRenderer: false,
-              dropdownRenderer: false,
-              inputRenderer: false,
-              itemRenderer: false,
-              optionRenderer: false,
-              noDataRenderer: false,
-              selectValuesType: [],
-              selectValuesTec: [],
-              selectValuesLabels: [],
-              searchBy: "username",
-              clearable: false,
-              searchable: false,
-              create: false,
-              separator: false,
-              forceOpen: false,
-              handle: true,
-              addPlaceholder: "",
-              color: "#0074D9",
-              keepSelectedInList: true,
-              closeOnSelect: false,
-              dropdownPosition: "bottom",
-              direction: "ltr",
-              dropdownHeight: "300px"
 
+          value: listTypeTechnologies[0].type,
+          value2: listTypeTechnologiesByType.filter(l => l.type== listTypeTechnologies[0].type)[0].tec,
+          value3: labels[0].text,
+          loading: false,
+          jsonNodeTo: listTypeTechnologiesByType.filter(l => l.type== listTypeTechnologies[0].type)
+         // jsonNodeTo:todos.concat(require("./../data/Nodesto_"+ listNewspaper[0].label +".json"))
         };
 
 
 
     }
 
-    setValuesType = selectValuesType => this.setState({ selectValuesType });
-     setValuesTec = selectValuesTec => this.setState({ selectValuesTec });
-     setValuesLabels = selectValuesLabels => this.setState({ selectValuesLabels });
+
+
+     onFirstSelect = e => {
+        const value = e.target.value;
+
+        let jsonNodeTo=[];
+        jsonNodeTo = listTypeTechnologiesByType.filter(l => l.type== value);
+        this.setState(
+          {
+            loading: true,
+            value: value,
+          },
+          //call the api and
+          () => {
+            this.setState({
+              loading: false,
+              jsonNodeTo,
+              value2: jsonNodeTo[0].tec
+            });
+          }
+        );
+      };
+      onSecondSelect = e => {
+        const value2 = e.target.value;
+
+        this.setState(
+          {
+            value2,
+          }
+          //call the api and
+
+        );
+      };
+       onThirdSelect = e => {
+        const value3 = e.target.value;
+
+        this.setState(
+          {
+            value3,
+          }
+          //call the api and
+
+        );
+      };
 
 
 
     render() {
 
-    let filter="language";
-    this.state.selectValuesType.forEach(element => {
-        filter= element.type;
-    });
-
-    //console.log(this.state.selectValuesType);
-  // let data=  listTypeTechnologiesByType.filter(l => l.Description== filter);
-    let data=  {}
-
-    data = listTypeTechnologiesByType.filter(l => l.type== filter);
 
 
 
-     let filterType="language";
-     this.state.selectValuesType.forEach(element => {
-        filterType= element.type;
-
-     });
-
-     let filterTec="Todos";
-        this.state.selectValuesTec.forEach(element => {
-            filterTec= element.tec;
-
-        });
-
-     let filterLabel="Todos";
-        this.state.selectValuesLabels.forEach(element => {
-            filterLabel= element.text;
-
-        });
 
 
      let dataWords={};
-     dataWords = this.state.words.filter(l => l.type== filter);
+     dataWords = this.state.words.filter(l => l.type== this.state.value);
 
-     if (filterTec !="Todos")
-        dataWords = dataWords.filter(l => l.tec== filterTec);
+    if (this.state.value2 != "Todos")
+        dataWords = dataWords.filter(l => l.tec== this.state.value2);
+    console.log(dataWords);
 
-     if (filterLabel !="Todos")
-        dataWords = dataWords.filter(l => l.label== filterLabel);
+    if(this.state.value3 != "All")
+     dataWords = dataWords.filter(l => l.label== this.state.value3);
 
-     //console.log(dataWords);
+
 
 
         return (
@@ -122,113 +116,31 @@ export default class ChartJsCircular extends React.Component {
                         <Card className="main-card mb-3">
                             <CardBody>
                                 <Row>
-                                <Col lg="4">
-                                    <p className="text-primary">Ámbito de la tecnología</p>
-                                     <div className="App">
-                                        <Select
-                                              placeholder="Select peoples"
-                                              addPlaceholder={this.state.addPlaceholder}
-                                              color={this.state.color}
-                                              disabled={this.state.disabled}
-                                              loading={this.state.loading}
-                                              searchBy={this.state.searchBy}
-                                              separator={this.state.separator}
-                                              clearable={this.state.clearable}
-                                              searchable={this.state.searchable}
-                                              create={this.state.create}
-                                              keepOpen={this.state.forceOpen}
-                                              dropdownHandle={this.state.handle}
-                                              dropdownHeight={this.state.dropdownHeight}
-                                              direction={this.state.direction}
-                                              multi={this.state.multi}
-                                              values={[listTypeTechnologies.find(opt => opt.type === "language")]}
-                                              labelField={"Description"}
-                                              valueField={"type"}
-                                              options={listTypeTechnologies}
-                                              dropdownGap={5}
-                                              keepSelectedInList={this.state.keepSelectedInList}
-                                              onDropdownOpen={() => undefined}
-                                              onDropdownClose={() => undefined}
-                                              onClearAll={() => undefined}
+                                    <Col lg="12">
+                                        <div className="App">
+                                        <p>Selecciona Tema, tecnología y tipo de entidad</p>
+                                        </div>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col lg="12">
 
-                                              onChange={values => this.setValuesType(values)}
+                                         { !this.state.loading && (
+                                                <div className="App">
+                                                  <select onChange={this.onFirstSelect} defaultValue={this.state.value}>
+                                                    {listTypeTechnologies.map(d => <option value={d.type}>{d.Description}</option>)}
+                                                  </select>
+                                                  <select onChange={this.onSecondSelect}>
+                                                    {this.state.jsonNodeTo.map(d => <option value={d.tec}>{d.tec}</option>)}
+                                                  </select>
+                                                  <select onChange={this.onThirdSelect}>
+                                                    {labels.map(d => <option value={d.text}>{d.value}</option>)}
+                                                  </select>
+                                                </div>
+                                              )}
 
 
-                                                />
-                                      </div>
-                                      <br></br>
-                                </Col>
-                                <Col lg="4">
-                                <p className="text-primary">Tecnología</p>
-                                <div className="App">
-                                    <Select
-                                        placeholder="Select peoples"
-                                      addPlaceholder={this.state.addPlaceholder}
-                                      color={this.state.color}
-                                      disabled={this.state.disabled}
-                                      loading={this.state.loading}
-                                      searchBy={this.state.searchBy}
-                                      separator={this.state.separator}
-                                      clearable={this.state.clearable}
-                                      searchable={this.state.searchable}
-                                      create={this.state.create}
-                                      keepOpen={this.state.forceOpen}
-                                      dropdownHandle={this.state.handle}
-                                      dropdownHeight={this.state.dropdownHeight}
-                                      direction={this.state.direction}
-                                      multi={this.state.multi}
-                                      values={[listTypeTechnologiesByType.find(opt => opt.tec === data[0].tec)]}
-                                      labelField={this.state.labelField}
-                                      valueField={this.state.valueField}
-                                      options={data}
-                                      labelField={ "tec"}
-                                      valueField={ "tec"}
-                                      dropdownGap={5}
-                                      keepSelectedInList={this.state.keepSelectedInList}
-                                      onDropdownOpen={() => undefined}
-                                      onDropdownClose={() => undefined}
-                                      onClearAll={() => undefined}
-
-                                      onChange={values => this.setValuesTec(values)}
-
-                                        />
-                                  </div>
-                                  <br></br>
-                                </Col>
-                                <Col lg="4">
-                                      <p className="text-primary">Tipo de entidad SpaCy</p>
-                                     <Select
-                                        placeholder="Select peoples"
-                                      addPlaceholder={this.state.addPlaceholder}
-                                      color={this.state.color}
-                                      disabled={this.state.disabled}
-                                      loading={this.state.loading}
-                                      searchBy={this.state.searchBy}
-                                      separator={this.state.separator}
-                                      clearable={this.state.clearable}
-                                      searchable={this.state.searchable}
-                                      create={this.state.create}
-                                      keepOpen={this.state.forceOpen}
-                                      dropdownHandle={this.state.handle}
-                                      dropdownHeight={this.state.dropdownHeight}
-                                      direction={this.state.direction}
-                                      multi={this.state.multi}
-                                      values={[labels.find(opt => opt.text === "All")]}
-                                      labelField={"value"}
-                                      valueField={"text"}
-                                      options={labels}
-                                      dropdownGap={5}
-                                      keepSelectedInList={this.state.keepSelectedInList}
-                                      onDropdownOpen={() => undefined}
-                                      onDropdownClose={() => undefined}
-                                      onClearAll={() => undefined}
-
-                                      onChange={values => this.setValuesLabels(values)}
-                                      noDataLabel="No matches found"
-                                      closeOnSelect={this.state.closeOnSelect}
-
-                                        />
-                                </Col>
+                                    </Col>
                                 </Row>
                             </CardBody>
                         </Card>

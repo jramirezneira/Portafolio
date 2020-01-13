@@ -46,10 +46,10 @@ export default class BarLineTec extends Component
     let filter="Todos";
 
 
-    this.props.selectValues.forEach(element => {
-        filter= element.Description;
+    //this.props.selectValues.forEach(element => {
+    filter= this.props.selectValues;
 
-    });
+    //});
 
    let data=  {}
 

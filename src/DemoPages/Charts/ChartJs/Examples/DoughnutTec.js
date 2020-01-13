@@ -14,10 +14,7 @@ export default class DoughnutTec extends Component
   render() {
 
    let filter="Todos";
-    this.props.selectValues.forEach(element => {
-        filter= element.Description;
-
-    });
+    filter= this.props.selectValues;
 
    let data=  {}
    if(filter=="Todos")

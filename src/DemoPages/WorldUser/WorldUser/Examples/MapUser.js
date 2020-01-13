@@ -28,10 +28,8 @@ export default class MapUser extends Component
     let dataIni={}
     let mapData={}
 
-    let filterType="Todos";
-    this.props.selectValuesType.forEach(element => {
-        filterType= element.Description;
-    });
+    let filterType=this.props.selectValuesType;
+
     //Object.values(listTecByCountry).map(val => {
 
        /* Object.values(val).map(val1 => {
@@ -45,10 +43,8 @@ export default class MapUser extends Component
 
     dataIni = Object.values(listTecByCountry[0]).filter(l => l.Description== filterType);
 
-    let filterTec="Todos";
-    this.props.selectValuesTec.forEach(element => {
-        filterTec= element.tec;
-    });
+    let filterTec=this.props.selectValuesTec;
+
     //Object.values(dataIni).filter(l => l.tec== "python");
 
    // console.log(Object.values(dataIni).filter(l => l.tec== filterTec));

@@ -36,10 +36,7 @@ export default class LineTec extends Component
 
 
    let filter="Todos";
-    this.props.selectValues.forEach(element => {
-        filter= element.Description;
-
-    });
+   filter= this.props.selectValues;
 
 
 
